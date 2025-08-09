@@ -8,6 +8,7 @@ const Navbar = () => {
   const navItems = [
     { href: "#accueil", label: "Accueil" },
     { href: "#fonctionnalites", label: "Fonctionnalités" },
+    { href: "#robot-3d", label: "Modèle 3D" },
     { href: "#specifications", label: "Spécifications" },
     { href: "#prix", label: "Prix" },
     { href: "#commande", label: "Commande" },

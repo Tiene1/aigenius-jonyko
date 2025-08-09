@@ -10,14 +10,15 @@ const Hero = () => {
 
   return (
     <section id="accueil" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background with gradient overlay */}
+      {/* Background with aisprid-inspired overlay */}
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
           alt="Robot agricole JONYKO dans un champ"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-background/60" />
+        <div className="absolute inset-0 bg-gradient-mesh" />
       </div>
 
       {/* Content */}
@@ -32,42 +33,42 @@ const Hero = () => {
               </div>
               
               <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-                <span className="bg-gradient-hero bg-clip-text text-transparent">
-                  JONYKO
-                </span>
-                <br />
                 <span className="text-foreground">
-                  Robot Agricole
+                  Soutenir les Agriculteurs
                 </span>
                 <br />
-                <span className="text-muted-foreground text-3xl md:text-4xl">
-                  Intelligent
+                <span className="text-muted-foreground text-2xl md:text-3xl">
+                  pour nourrir durablement,
+                </span>
+                <br />
+                <span className="bg-gradient-hero bg-clip-text text-transparent text-3xl md:text-5xl">
+                  grâce à JONYKO
                 </span>
               </h1>
               
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                Révolutionnez votre agriculture avec JONYKO, le robot qui transporte 
-                vos récoltes de 200 à 1000kg avec une autonomie de 8 heures. 
-                Technologie électrique et écologique.
+                Le robot JONYKO est une merveille technologique adaptée au monde agricole, 
+                capable de transporter vos récoltes intelligemment. La robotique de haute 
+                précision combinée à l'intelligence artificielle en soutien des agriculteurs.
               </p>
             </div>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Aisprid inspired */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-primary hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 transform hover:scale-105"
-                onClick={() => scrollToSection("#fonctionnalites")}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 px-8 py-3 rounded-full"
+                onClick={() => scrollToSection("#robot-3d")}
               >
-                Découvrir JONYKO
+                Découvrir notre robot
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8 py-3"
                 onClick={() => scrollToSection("#contact")}
               >
-                Demander un devis
+                Contactez-nous
               </Button>
             </div>
 

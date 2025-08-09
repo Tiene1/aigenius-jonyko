@@ -20,21 +20,21 @@ All colors MUST be HSL. Agriculture + Technology themed.
     --popover: 0 0% 100%;
     --popover-foreground: 220 13% 18%;
 
-    /* Primary - Agriculture Green */
-    --primary: 115 45% 35%;
+    /* Primary - Aisprid Green */
+    --primary: 120 60% 45%;
     --primary-foreground: 0 0% 98%;
-    --primary-light: 115 45% 45%;
-    --primary-glow: 115 60% 50%;
+    --primary-light: 120 70% 55%;
+    --primary-glow: 120 80% 65%;
 
-    /* Secondary - Tech Blue */
-    --secondary: 215 85% 45%;
-    --secondary-foreground: 0 0% 98%;
-    --secondary-light: 215 85% 55%;
+    /* Secondary - Orange Accent */
+    --secondary: 35 91% 65%;
+    --secondary-foreground: 220 13% 18%;
+    --secondary-light: 35 100% 75%;
     
-    /* Accent - Premium Gold */
-    --accent: 45 100% 55%;
-    --accent-foreground: 220 13% 18%;
-    --accent-glow: 45 100% 65%;
+    /* Accent - Purple Tech */
+    --accent: 260 100% 70%;
+    --accent-foreground: 0 0% 98%;
+    --accent-glow: 260 100% 80%;
 
     /* Muted */
     --muted: 210 40% 96%;
@@ -52,16 +52,18 @@ All colors MUST be HSL. Agriculture + Technology themed.
     /* Design tokens */
     --radius: 0.75rem;
     
-    /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-tech: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    /* Custom gradients - Aisprid inspired */
+    --gradient-primary: linear-gradient(135deg, hsl(120 60% 45%), hsl(120 70% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(35 91% 65%), hsl(35 100% 75%));
+    --gradient-hero: linear-gradient(135deg, hsl(120 60% 45%), hsl(260 100% 70%));
+    --gradient-accent: linear-gradient(135deg, hsl(260 100% 70%), hsl(260 100% 80%));
+    --gradient-mesh: linear-gradient(45deg, hsl(120 60% 45% / 0.1), hsl(260 100% 70% / 0.1));
     
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.1);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.2);
-    --shadow-tech: 0 8px 32px -4px hsl(var(--secondary) / 0.2);
+    /* Shadows - Enhanced */
+    --shadow-soft: 0 4px 20px -2px hsl(120 60% 45% / 0.1);
+    --shadow-glow: 0 0 40px hsl(120 80% 65% / 0.2);
+    --shadow-mesh: 0 20px 60px -15px hsl(120 60% 45% / 0.2);
+    --shadow-elegant: 0 10px 30px -10px hsl(120 60% 45% / 0.3);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
