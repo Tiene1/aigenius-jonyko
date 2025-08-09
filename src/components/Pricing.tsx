@@ -1,0 +1,190 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Check, ShoppingCart, Calendar, Wrench } from "lucide-react";
+
+const Pricing = () => {
+  const pricingOptions = [
+    {
+      icon: ShoppingCart,
+      title: "Achat Direct",
+      price: "1 800 000 - 2 300 000",
+      currency: "FCFA",
+      description: "Acquisition complète avec services inclus",
+      color: "primary",
+      popular: true,
+      features: [
+        "Robot JONYKO complet avec accessoires",
+        "Formation complète équipe agricole",
+        "Garantie constructeur incluse",
+        "Support technique initial",
+        "Documentation technique complète",
+        "Livraison sur site incluse"
+      ]
+    },
+    {
+      icon: Calendar,
+      title: "Location Flexible",
+      price: "200 000 - 350 000",
+      currency: "FCFA/période",
+      description: "Solution saisonnière avec flexibilité maximale",
+      color: "secondary",
+      popular: false,
+      features: [
+        "Location courte et longue durée",
+        "Maintenance complètement incluse",
+        "Support technique permanent",
+        "Formation utilisateurs renouvelée",
+        "Assurance complète du matériel",
+        "Flexibilité cycles saisonniers"
+      ]
+    },
+    {
+      icon: Wrench,
+      title: "Maintenance Pro",
+      price: "50 000 - 200 000",
+      currency: "FCFA/intervention",
+      description: "Service après-vente professionnel",
+      color: "accent",
+      popular: false,
+      features: [
+        "Diagnostic complet du système",
+        "Réparations avec pièces d'origine",
+        "Pièces de rechange certifiées",
+        "Optimisation des performances",
+        "Mise à jour logicielle",
+        "Rapport détaillé d'intervention"
+      ]
+    }
+  ];
+
+  const scrollToContact = () => {
+    const element = document.querySelector("#contact");
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <section id="prix" className="py-20 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16 animate-fade-in">
+          <Badge variant="outline" className="mb-4 border-accent text-accent">
+            Options Commerciales
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Solutions Flexibles
+            <span className="block text-accent">Pour Chaque Besoin</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Choisissez la solution qui correspond le mieux à vos besoins et 
+            à votre budget agricole
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {pricingOptions.map((option, index) => {
+            const IconComponent = option.icon;
+            return (
+              <Card 
+                key={option.title}
+                className={`relative transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-scale-in ${
+                  option.popular ? 'border-2 border-primary shadow-lg scale-105' : 'border border-border'
+                }`}
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                {option.popular && (
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <Badge className="bg-primary text-primary-foreground px-4 py-1">
+                      Recommandé
+                    </Badge>
+                  </div>
+                )}
+
+                <CardHeader className="text-center pb-4">
+                  <div className={`inline-flex items-center justify-center w-16 h-16 mb-4 bg-${option.color}/10 rounded-full mx-auto`}>
+                    <IconComponent className={`h-8 w-8 text-${option.color}`} />
+                  </div>
+                  <CardTitle className="text-xl mb-2">{option.title}</CardTitle>
+                  <div className="mb-2">
+                    <span className={`text-3xl font-bold text-${option.color}`}>
+                      {option.price.split(' - ')[0]}
+                    </span>
+                    {option.price.includes(' - ') && (
+                      <span className="text-lg text-muted-foreground">
+                        {' - ' + option.price.split(' - ')[1]}
+                      </span>
+                    )}
+                    <div className="text-sm text-muted-foreground mt-1">
+                      {option.currency}
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    {option.description}
+                  </p>
+                </CardHeader>
+
+                <CardContent className="pt-0">
+                  <ul className="space-y-3 mb-6">
+                    {option.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <div className={`w-5 h-5 rounded-full bg-${option.color}/10 flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                          <Check className={`h-3 w-3 text-${option.color}`} />
+                        </div>
+                        <span className="text-sm text-muted-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Button 
+                    className={`w-full ${
+                      option.popular 
+                        ? 'bg-gradient-primary hover:shadow-lg hover:shadow-primary/25' 
+                        : option.color === 'secondary'
+                        ? 'bg-gradient-tech hover:shadow-lg hover:shadow-secondary/25'
+                        : 'bg-gradient-accent hover:shadow-lg hover:shadow-accent/25'
+                    } transition-all duration-300`}
+                    onClick={scrollToContact}
+                  >
+                    {option.title === "Achat Direct" ? "Demander un devis" :
+                     option.title === "Location Flexible" ? "Demander location" :
+                     "Planifier maintenance"}
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* Additional Info */}
+        <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '800ms' }}>
+          <Card className="max-w-4xl mx-auto bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
+            <CardContent className="p-8">
+              <h3 className="text-xl font-bold mb-4">Engagement Qualité AiGENIUS GROUPE</h3>
+              <div className="grid md:grid-cols-3 gap-6 text-sm text-muted-foreground">
+                <div className="text-center">
+                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Check className="h-4 w-4 text-primary" />
+                  </div>
+                  <p>Suivi personnalisé de chaque client</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Check className="h-4 w-4 text-secondary" />
+                  </div>
+                  <p>Respect des délais de livraison</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Check className="h-4 w-4 text-accent" />
+                  </div>
+                  <p>Transparence totale sur tarifs</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Pricing;
