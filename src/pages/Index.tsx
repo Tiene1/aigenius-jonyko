@@ -1,10 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import RobotSpecs3D from "@/components/RobotSpecs3D";
-import Specifications from "@/components/Specifications";
+import FeaturesAndRobot3D from "@/components/FeaturesAndRobot3D";
 import Pricing from "@/components/Pricing";
-import RemoteControl from "@/components/RemoteControl";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -14,11 +11,8 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <Features />
-        <RobotSpecs3D />
-        <Specifications />
+        <FeaturesAndRobot3D />
         <Pricing />
-        <RemoteControl />
         <Contact />
       </main>
       <Footer />

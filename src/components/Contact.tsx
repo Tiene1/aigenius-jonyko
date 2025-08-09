@@ -23,7 +23,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "contact@jonyko.com",
+      content: "robotjonyko@gmail.com",
       subContent: "Réponse sous 24h",
       color: "secondary"
     },
@@ -78,26 +78,26 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="space-y-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-6">
+            <div className="grid md:grid-cols-4 gap-6">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
                   <Card 
                     key={info.title}
-                    className={`group transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-slide-in-left`}
+                    className={`group transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-slide-in-left h-full`}
                     style={{ animationDelay: `${index * 150}ms` }}
                   >
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
+                    <CardContent className="p-6 h-full flex flex-col">
+                      <div className="flex items-start gap-4 flex-1">
                         <div className={`p-3 rounded-lg bg-${info.color}/10 flex-shrink-0`}>
                           <IconComponent className={`h-5 w-5 text-${info.color}`} />
                         </div>
-                        <div>
+                        <div className="flex-1">
                           <h3 className="font-semibold mb-1">{info.title}</h3>
-                          <p className={`text-${info.color} font-medium mb-1`}>
+                          <p className={`text-${info.color} font-medium mb-1 break-all text-sm`}>
                             {info.content}
                           </p>
                           <p className="text-sm text-muted-foreground">
@@ -141,19 +141,19 @@ const Contact = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="space-y-6 animate-slide-in-right" style={{ animationDelay: '300ms' }}>
-            <Card className="bg-gradient-primary text-primary-foreground">
-              <CardHeader>
+          <div className="grid md:grid-cols-3 gap-6 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
+            <Card className="bg-gradient-primary text-primary-foreground h-full flex flex-col">
+              <CardHeader className="flex-shrink-0">
                 <CardTitle className="text-white">Demande de Devis</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-primary-foreground/90 text-sm">
+              <CardContent className="flex-1 flex flex-col justify-between">
+                <p className="text-primary-foreground/90 text-sm mb-4">
                   Obtenez un devis personnalisé pour votre exploitation agricole
                 </p>
                 <Button 
                   variant="secondary"
-                  className="w-full bg-white text-primary hover:bg-white/90"
-                  onClick={() => window.open('mailto:contact@jonyko.com?subject=Demande de devis JONYKO&body=Bonjour, je souhaiterais recevoir un devis pour le robot agricole JONYKO.', '_blank')}
+                  className="w-full bg-white text-primary hover:bg-white/90 mt-auto"
+                  onClick={() => window.open('mailto:robotjonyko@gmail.com?subject=Demande de devis JONYKO&body=Bonjour, je souhaiterais recevoir un devis pour le robot agricole JONYKO.', '_blank')}
                 >
                   <Mail className="h-4 w-4 mr-2" />
                   Demander un devis
@@ -161,17 +161,17 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-tech text-secondary-foreground">
-              <CardHeader>
-                <CardTitle className="text-white">Support Technique</CardTitle>
+            <Card className="bg-gradient-tech text-secondary-foreground h-full flex flex-col">
+              <CardHeader className="flex-shrink-0">
+                <CardTitle className="text-black">Support Technique</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-secondary-foreground/90 text-sm">
+              <CardContent className="flex-1 flex flex-col justify-between">
+                <p className="text-secondary-foreground/90 text-sm mb-4">
                   Besoin d'assistance ? Notre équipe technique est là pour vous aider
                 </p>
                 <Button 
                   variant="secondary"
-                  className="w-full bg-white text-secondary hover:bg-white/90"
+                  className="w-full bg-white text-secondary hover:bg-white/90 mt-auto"
                   onClick={() => window.open('tel:+22505559384444', '_blank')}
                 >
                   <Phone className="h-4 w-4 mr-2" />
@@ -180,14 +180,14 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
+            <Card className="h-full flex flex-col">
+              <CardHeader className="flex-shrink-0">
                 <CardTitle className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-accent rounded-full animate-glow-pulse" />
                   Engagement Qualité
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3 text-sm text-muted-foreground">
+              <CardContent className="flex-1 space-y-3 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                   Suivi personnalisé de chaque client

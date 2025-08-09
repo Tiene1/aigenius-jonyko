@@ -23,30 +23,30 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col items-center justify-center text-center max-w-6xl mx-auto">
           {/* Text Content */}
-          <div className="space-y-8 animate-slide-in-left">
+          <div className="space-y-12 animate-slide-in-left">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
                 <div className="w-2 h-2 bg-primary rounded-full animate-glow-pulse" />
-                <span className="text-sm font-medium text-primary">Innovation Agricole</span>
+                <span className="text-base font-medium text-primary">Innovation Agricole</span>
               </div>
               
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+              <h1 className="text-5xl md:text-7xl font-bold leading-tight">
                 <span className="text-foreground">
                   Soutenir les Agriculteurs
                 </span>
                 <br />
-                <span className="text-muted-foreground text-2xl md:text-3xl">
+                <span className="text-muted-foreground text-3xl md:text-4xl">
                   pour nourrir durablement,
                 </span>
                 <br />
-                <span className="bg-gradient-hero bg-clip-text text-transparent text-3xl md:text-5xl">
+                <span className="bg-gradient-hero bg-clip-text text-transparent text-4xl md:text-6xl">
                   grâce à JONYKO
                 </span>
               </h1>
               
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-5xl mx-auto leading-relaxed">
                 Le robot JONYKO est une merveille technologique adaptée au monde agricole, 
                 capable de transporter vos récoltes intelligemment. La robotique de haute 
                 précision combinée à l'intelligence artificielle en soutien des agriculteurs.
@@ -54,49 +54,22 @@ const Hero = () => {
             </div>
 
             {/* CTA Buttons - Aisprid inspired */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 px-8 py-3 rounded-full"
-                onClick={() => scrollToSection("#robot-3d")}
+                className="bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 transform hover:scale-105 px-10 py-4 rounded-full text-lg"
+                onClick={() => scrollToSection("#fonctionnalites")}
               >
                 Découvrir notre robot
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8 py-3"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-10 py-4 text-lg"
                 onClick={() => scrollToSection("#contact")}
               >
                 Contactez-nous
               </Button>
-            </div>
-
-            {/* Key Features */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-primary">200-1000kg</div>
-                <div className="text-sm text-muted-foreground">Capacité</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-secondary">8h</div>
-                <div className="text-sm text-muted-foreground">Autonomie</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-accent">100%</div>
-                <div className="text-sm text-muted-foreground">Électrique</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Robot Visual */}
-          <div className="flex justify-center lg:justify-end animate-slide-in-right">
-            <div className="relative">
-              <div className="w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-radial from-primary/20 to-transparent animate-float" />
-              <div className="absolute inset-8 rounded-full bg-gradient-primary opacity-20 animate-glow-pulse" />
-              <div className="absolute inset-16 flex items-center justify-center">
-                <div className="text-8xl animate-float">🤖</div>
-              </div>
             </div>
           </div>
         </div>
@@ -108,9 +81,9 @@ const Hero = () => {
           variant="ghost" 
           size="sm" 
           onClick={() => scrollToSection("#fonctionnalites")}
-          className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary"
+          className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
         >
-          <span className="text-xs">Découvrir</span>
+          <span className="text-sm font-medium">Découvrir</span>
           <ChevronDown className="h-4 w-4" />
         </Button>
       </div>

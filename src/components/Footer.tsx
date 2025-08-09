@@ -30,10 +30,9 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Navigation</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#accueil" className="hover:text-primary transition-colors">Accueil</a></li>
-              <li><a href="#fonctionnalites" className="hover:text-primary transition-colors">Fonctionnalités</a></li>
-              <li><a href="#specifications" className="hover:text-primary transition-colors">Spécifications</a></li>
-              <li><a href="#prix" className="hover:text-primary transition-colors">Prix</a></li>
-              <li><a href="#commande" className="hover:text-primary transition-colors">Commande</a></li>
+              <li><a href="#fonctionnalites" className="hover:text-primary transition-colors">Fonctionnalités & 3D</a></li>
+              <li><a href="#prix" className="hover:text-primary transition-colors">Options Commerciales</a></li>
+              <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>
 
@@ -55,7 +54,7 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>Interlab Angré 8ème tranche</p>
               <p>Abidjan, Côte d'Ivoire</p>
-              <p className="text-primary">contact@jonyko.com</p>
+              <p className="text-primary">robotjonyko@gmail.com</p>
               <p className="text-secondary">+225 01 40 56 72 89</p>
               <p className="text-accent">+225 05 55 93 84 44</p>
             </div>
