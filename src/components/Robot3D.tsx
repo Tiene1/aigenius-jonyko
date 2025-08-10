@@ -26,52 +26,76 @@ const GLTFModel = () => {
   );
 };
 
-// Composant placeholder
+// Composant placeholder amélioré pour ressembler à JONYKO
 const PlaceholderModel = () => {
   const groupRef = useRef<any>(null);
   
   useFrame((state) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.elapsedTime * 0.3;
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.2;
     }
   });
 
   return (
     <group ref={groupRef}>
-      <mesh position={[0, 0, 0]}>
-        {/* Corps principal du robot */}
-        <boxGeometry args={[2, 1, 3]} />
-        <meshStandardMaterial color="#4ade80" />
+      {/* Châssis principal */}
+      <mesh position={[0, -0.2, 0]}>
+        <boxGeometry args={[2.5, 0.3, 4]} />
+        <meshStandardMaterial color="#2d5016" />
       </mesh>
       
-      {/* Roues */}
-      <mesh position={[-1.2, -0.8, 1.2]}>
-        <cylinderGeometry args={[0.4, 0.4, 0.2]} />
-        <meshStandardMaterial color="#374151" />
+      {/* Roues avant */}
+      <mesh position={[-1.4, -0.6, 1.8]} rotation={[Math.PI/2, 0, 0]}>
+        <cylinderGeometry args={[0.5, 0.5, 0.3]} />
+        <meshStandardMaterial color="#1f2937" />
       </mesh>
-      <mesh position={[1.2, -0.8, 1.2]}>
-        <cylinderGeometry args={[0.4, 0.4, 0.2]} />
-        <meshStandardMaterial color="#374151" />
+      <mesh position={[1.4, -0.6, 1.8]} rotation={[Math.PI/2, 0, 0]}>
+        <cylinderGeometry args={[0.5, 0.5, 0.3]} />
+        <meshStandardMaterial color="#1f2937" />
       </mesh>
-      <mesh position={[-1.2, -0.8, -1.2]}>
-        <cylinderGeometry args={[0.4, 0.4, 0.2]} />
-        <meshStandardMaterial color="#374151" />
+      
+      {/* Roues arrière */}
+      <mesh position={[-1.4, -0.6, -1.8]} rotation={[Math.PI/2, 0, 0]}>
+        <cylinderGeometry args={[0.5, 0.5, 0.3]} />
+        <meshStandardMaterial color="#1f2937" />
       </mesh>
-      <mesh position={[1.2, -0.8, -1.2]}>
-        <cylinderGeometry args={[0.4, 0.4, 0.2]} />
-        <meshStandardMaterial color="#374151" />
+      <mesh position={[1.4, -0.6, -1.8]} rotation={[Math.PI/2, 0, 0]}>
+        <cylinderGeometry args={[0.5, 0.5, 0.3]} />
+        <meshStandardMaterial color="#1f2937" />
       </mesh>
       
       {/* Benne de transport */}
-      <mesh position={[0, 0.8, -0.5]}>
-        <boxGeometry args={[1.8, 0.8, 2]} />
-        <meshStandardMaterial color="#fbbf24" />
+      <mesh position={[0, 0.5, -0.8]}>
+        <boxGeometry args={[2, 1, 2.4]} />
+        <meshStandardMaterial color="#f59e0b" />
       </mesh>
       
-      {/* Capteurs */}
-      <mesh position={[0, 0.3, 1.6]}>
-        <sphereGeometry args={[0.15]} />
-        <meshStandardMaterial color="#8b5cf6" emissive="#8b5cf6" emissiveIntensity={0.3} />
+      {/* Cabine de contrôle */}
+      <mesh position={[0, 0.3, 1.5]}>
+        <boxGeometry args={[1.2, 0.8, 1]} />
+        <meshStandardMaterial color="#4ade80" />
+      </mesh>
+      
+      {/* Capteurs/Caméras */}
+      <mesh position={[-0.4, 0.6, 2]}>
+        <sphereGeometry args={[0.1]} />
+        <meshStandardMaterial color="#8b5cf6" emissive="#8b5cf6" emissiveIntensity={0.5} />
+      </mesh>
+      <mesh position={[0.4, 0.6, 2]}>
+        <sphereGeometry args={[0.1]} />
+        <meshStandardMaterial color="#8b5cf6" emissive="#8b5cf6" emissiveIntensity={0.5} />
+      </mesh>
+      
+      {/* Antenne GPS */}
+      <mesh position={[0, 1, 1.5]}>
+        <cylinderGeometry args={[0.05, 0.05, 0.4]} />
+        <meshStandardMaterial color="#ef4444" />
+      </mesh>
+      
+      {/* Éclairage LED */}
+      <mesh position={[0, 0.4, 2.2]}>
+        <boxGeometry args={[0.8, 0.2, 0.1]} />
+        <meshStandardMaterial color="#ffffff" emissive="#ffffff" emissiveIntensity={0.3} />
       </mesh>
     </group>
   );
@@ -88,6 +112,11 @@ const GLTFErrorBoundary = ({ children }: { children: React.ReactNode }) => {
 };
 
 const RobotModel = ({ modelPath }: RobotModelProps) => {
+  // Pour l'instant, utilisons le placeholder jusqu'à avoir un modèle 3D compatible
+  return <PlaceholderModel />;
+  
+  // Code GLTF commenté temporairement
+  /*
   return (
     <GLTFErrorBoundary>
       <Suspense fallback={<PlaceholderModel />}>
@@ -95,6 +124,7 @@ const RobotModel = ({ modelPath }: RobotModelProps) => {
       </Suspense>
     </GLTFErrorBoundary>
   );
+  */
 };
 
 const Robot3D = ({ modelPath }: RobotModelProps) => {
