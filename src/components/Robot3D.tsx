@@ -2,59 +2,28 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment } from '@react-three/drei';
 import { useRef } from 'react';
 import { Mesh } from 'three';
+import jonykoModel from '@/assets/models/jonyko-robot.gltf';
 
 interface RobotModelProps {
   modelPath?: string;
 }
 
 const RobotModel = ({ modelPath }: RobotModelProps) => {
-  const meshRef = useRef<Mesh>(null);
+  const groupRef = useRef<any>(null);
+  
+  // Charger le modèle GLTF
+  const { scene } = useGLTF(modelPath || jonykoModel);
   
   // Animation de rotation
   useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.y = state.clock.elapsedTime * 0.5;
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.3;
     }
   });
 
-  // Placeholder en attendant le modèle 3D
   return (
-    <group>
-      <mesh ref={meshRef} position={[0, 0, 0]}>
-        {/* Corps principal du robot */}
-        <boxGeometry args={[2, 1, 3]} />
-        <meshStandardMaterial color="#4ade80" />
-      </mesh>
-      
-      {/* Roues */}
-      <mesh position={[-1.2, -0.8, 1.2]}>
-        <cylinderGeometry args={[0.4, 0.4, 0.2]} />
-        <meshStandardMaterial color="#374151" />
-      </mesh>
-      <mesh position={[1.2, -0.8, 1.2]}>
-        <cylinderGeometry args={[0.4, 0.4, 0.2]} />
-        <meshStandardMaterial color="#374151" />
-      </mesh>
-      <mesh position={[-1.2, -0.8, -1.2]}>
-        <cylinderGeometry args={[0.4, 0.4, 0.2]} />
-        <meshStandardMaterial color="#374151" />
-      </mesh>
-      <mesh position={[1.2, -0.8, -1.2]}>
-        <cylinderGeometry args={[0.4, 0.4, 0.2]} />
-        <meshStandardMaterial color="#374151" />
-      </mesh>
-      
-      {/* Benne de transport */}
-      <mesh position={[0, 0.8, -0.5]}>
-        <boxGeometry args={[1.8, 0.8, 2]} />
-        <meshStandardMaterial color="#fbbf24" />
-      </mesh>
-      
-      {/* Capteurs */}
-      <mesh position={[0, 0.3, 1.6]}>
-        <sphereGeometry args={[0.15]} />
-        <meshStandardMaterial color="#8b5cf6" emissive="#8b5cf6" emissiveIntensity={0.3} />
-      </mesh>
+    <group ref={groupRef} scale={[2, 2, 2]} position={[0, -1, 0]}>
+      <primitive object={scene} />
     </group>
   );
 };
