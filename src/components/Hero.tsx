@@ -33,23 +33,22 @@ const Hero = () => {
               </div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="text-foreground">
-                  Soutenir les Agriculteurs
+                <span className="bg-gradient-hero bg-clip-text text-transparent">
+                  JONYKO
+                </span>
+                <br />
+                <span className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                  Robot Agricole
                 </span>
                 <br />
                 <span className="text-muted-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-                  pour nourrir durablement,
-                </span>
-                <br />
-                <span className="bg-gradient-hero bg-clip-text text-transparent text-2xl sm:text-3xl md:text-4xl lg:text-6xl">
-                  grâce à JONYKO
+                  Intelligent
                 </span>
               </h1>
               
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-5xl mx-auto leading-relaxed px-4">
-                Le robot JONYKO est une merveille technologique adaptée au monde agricole, 
-                capable de transporter vos récoltes intelligemment. La robotique de haute 
-                précision combinée à l'intelligence artificielle en soutien des agriculteurs.
+                Solution innovante pour le transport des récoltes de l'intérieur des champs au bord champs. 
+                Réduisez l'effort physique et optimisez votre logistique post-récolte.
               </p>
             </div>
 
