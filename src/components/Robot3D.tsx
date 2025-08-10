@@ -84,7 +84,7 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
         <Environment preset="sunset" />
       </Canvas>
       
-      <div className="absolute bottom-4 left-4 text-xs text-muted-foreground bg-background/80 px-2 py-1 rounded">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-muted-foreground bg-transparent px-2 py-1 rounded text-center">
         Double cliquez ou appuyez et glissez pour contrôler la vue
       </div>
     </div>
