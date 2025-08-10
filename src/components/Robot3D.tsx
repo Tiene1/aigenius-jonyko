@@ -13,7 +13,7 @@ const GLTFModel = () => {
   const { scene } = useGLTF('/models/jonyko-robot.glb');
 
   return (
-    <group scale={[50, 50, 50]} position={[0, 0, 0]}>
+    <group scale={[50, 50, 50]} position={[0, -2, 0]}>
       <primitive object={scene} />
     </group>
   );
@@ -111,7 +111,7 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
   return (
     <div className="w-full h-[500px] rounded-lg overflow-hidden bg-gradient-to-br from-background to-muted">
       <Canvas
-        camera={{ position: [5, 3, 5], fov: 50 }}
+        camera={{ position: [0, 5, 8], fov: 50 }}
         style={{ background: 'transparent' }}
       >
         <ambientLight intensity={0.6} />
@@ -125,8 +125,7 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
           enableZoom={true}
           minDistance={3}
           maxDistance={15}
-          autoRotate={true}
-          autoRotateSpeed={1}
+          autoRotate={false}
         />
         
         <Environment preset="sunset" />
