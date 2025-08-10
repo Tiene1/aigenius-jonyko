@@ -85,7 +85,7 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
       </Canvas>
       
       <div className="absolute bottom-4 left-4 text-xs text-muted-foreground bg-background/80 px-2 py-1 rounded">
-        Cliquez et glissez pour contrôler la vue
+        Double cliquez ou appuyez et glissez pour contrôler la vue
       </div>
     </div>
   );
