@@ -10,17 +10,10 @@ interface RobotModelProps {
 
 // Composant pour charger le modèle GLB avec Suspense
 const GLTFModel = () => {
-  const groupRef = useRef<any>(null);
   const { scene } = useGLTF('/models/jonyko-robot.glb');
-  
-  useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.elapsedTime * 0.3;
-    }
-  });
 
   return (
-    <group ref={groupRef} scale={[50, 50, 50]} position={[0, 0, 0]}>
+    <group scale={[50, 50, 50]} position={[0, 0, 0]}>
       <primitive object={scene} />
     </group>
   );
@@ -28,16 +21,8 @@ const GLTFModel = () => {
 
 // Composant placeholder amélioré pour ressembler à JONYKO
 const PlaceholderModel = () => {
-  const groupRef = useRef<any>(null);
-  
-  useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y = state.clock.elapsedTime * 0.2;
-    }
-  });
-
   return (
-    <group ref={groupRef}>
+    <group>
       {/* Châssis principal */}
       <mesh position={[0, -0.2, 0]}>
         <boxGeometry args={[2.5, 0.3, 4]} />
