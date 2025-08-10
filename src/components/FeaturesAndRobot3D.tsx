@@ -101,7 +101,7 @@ const FeaturesAndRobot3D = () => {
 
   return (
     <section id="fonctionnalites" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <Badge variant="outline" className="mb-4 border-primary text-primary">
             Fonctionnalités & Spécifications
@@ -124,7 +124,7 @@ const FeaturesAndRobot3D = () => {
             {/* Modes de Fonctionnement */}
             <div>
               <h3 className="text-2xl font-bold mb-6 text-center">Modes de Fonctionnement</h3>
-              <div className="grid md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {modes.map((mode, index) => {
                   const IconComponent = mode.icon;
                   const colorClasses = {
@@ -185,7 +185,7 @@ const FeaturesAndRobot3D = () => {
               <h3 className="text-2xl font-bold mb-6 text-center">Spécifications Techniques</h3>
               
               {/* Spécifications principales */}
-              <div className="grid md:grid-cols-4 gap-3 mb-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-6">
                 {specifications.map((spec, index) => {
                   const IconComponent = spec.icon;
                   return (
@@ -209,7 +209,7 @@ const FeaturesAndRobot3D = () => {
               </div>
 
               {/* Avantages Supplémentaires */}
-              <div className="grid md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {additionalFeatures.map((feature, index) => {
                   const IconComponent = feature.icon;
                   return (

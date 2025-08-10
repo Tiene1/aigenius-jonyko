@@ -63,7 +63,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <Badge variant="outline" className="mb-4 border-primary text-primary">
             Contact
@@ -81,7 +81,7 @@ const Contact = () => {
         <div className="space-y-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-6">
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
@@ -117,7 +117,7 @@ const Contact = () => {
                 <CardTitle>Services Clients Disponibles</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                   {services.map((service, index) => {
                     const IconComponent = service.icon;
                     return (
@@ -141,7 +141,7 @@ const Contact = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="grid md:grid-cols-3 gap-6 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
             <Card className="bg-gradient-primary text-primary-foreground h-full flex flex-col">
               <CardHeader className="flex-shrink-0">
                 <CardTitle className="text-white">Demande de Devis</CardTitle>

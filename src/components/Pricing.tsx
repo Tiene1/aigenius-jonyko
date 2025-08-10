@@ -65,7 +65,7 @@ const Pricing = () => {
 
   return (
     <section id="prix" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           <Badge variant="outline" className="mb-4 border-accent text-accent">
             Options Commerciales
@@ -80,7 +80,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {pricingOptions.map((option, index) => {
             const IconComponent = option.icon;
             return (
@@ -159,7 +159,7 @@ const Pricing = () => {
           <Card className="max-w-4xl mx-auto bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
             <CardContent className="p-8">
               <h3 className="text-xl font-bold mb-4">Engagement Qualité AiGENIUS GROUPE</h3>
-              <div className="grid md:grid-cols-3 gap-6 text-sm text-muted-foreground">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-sm text-muted-foreground">
                 <div className="text-center">
                   <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
                     <Check className="h-4 w-4 text-primary" />
