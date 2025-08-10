@@ -10,12 +10,12 @@ interface RobotModelProps {
 const RobotModel = ({ modelPath }: RobotModelProps) => {
   const groupRef = useRef<any>(null);
   
-  // Essayer de charger le modèle GLTF s'il est fourni
+  // Charger le modèle GLTF depuis le dossier public
+  const gltfPath = modelPath || '/models/jonyko-robot.gltf';
   let gltfData = null;
+  
   try {
-    if (modelPath) {
-      gltfData = useGLTF(modelPath);
-    }
+    gltfData = useGLTF(gltfPath);
   } catch (error) {
     console.warn('Erreur de chargement du modèle GLTF:', error);
   }
@@ -30,7 +30,7 @@ const RobotModel = ({ modelPath }: RobotModelProps) => {
   // Si le modèle GLTF est chargé, l'afficher
   if (gltfData && gltfData.scene) {
     return (
-      <group ref={groupRef} scale={[2, 2, 2]} position={[0, -1, 0]}>
+      <group ref={groupRef} scale={[0.5, 0.5, 0.5]} position={[0, 0, 0]}>
         <primitive object={gltfData.scene} />
       </group>
     );
