@@ -1,42 +1,40 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment } from '@react-three/drei';
-import { useRef } from 'react';
+import { useRef, Suspense } from 'react';
 import { Mesh } from 'three';
 
 interface RobotModelProps {
   modelPath?: string;
 }
 
-const RobotModel = ({ modelPath }: RobotModelProps) => {
+// Composant pour charger le modèle GLTF avec Suspense
+const GLTFModel = () => {
   const groupRef = useRef<any>(null);
+  const { scene } = useGLTF('/models/jonyko-robot.gltf');
   
-  // Charger le modèle GLTF depuis le dossier public
-  const gltfPath = modelPath || '/models/jonyko-robot.gltf';
-  let gltfData = null;
-  
-  try {
-    gltfData = useGLTF(gltfPath);
-  } catch (error) {
-    console.warn('Erreur de chargement du modèle GLTF:', error);
-  }
-  
-  // Animation de rotation
   useFrame((state) => {
     if (groupRef.current) {
       groupRef.current.rotation.y = state.clock.elapsedTime * 0.3;
     }
   });
 
-  // Si le modèle GLTF est chargé, l'afficher
-  if (gltfData && gltfData.scene) {
-    return (
-      <group ref={groupRef} scale={[0.5, 0.5, 0.5]} position={[0, 0, 0]}>
-        <primitive object={gltfData.scene} />
-      </group>
-    );
-  }
+  return (
+    <group ref={groupRef} scale={[0.5, 0.5, 0.5]} position={[0, 0, 0]}>
+      <primitive object={scene} />
+    </group>
+  );
+};
 
-  // Sinon, afficher le placeholder
+// Composant placeholder
+const PlaceholderModel = () => {
+  const groupRef = useRef<any>(null);
+  
+  useFrame((state) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.elapsedTime * 0.3;
+    }
+  });
+
   return (
     <group ref={groupRef}>
       <mesh position={[0, 0, 0]}>
@@ -75,6 +73,14 @@ const RobotModel = ({ modelPath }: RobotModelProps) => {
         <meshStandardMaterial color="#8b5cf6" emissive="#8b5cf6" emissiveIntensity={0.3} />
       </mesh>
     </group>
+  );
+};
+
+const RobotModel = ({ modelPath }: RobotModelProps) => {
+  return (
+    <Suspense fallback={<PlaceholderModel />}>
+      <GLTFModel />
+    </Suspense>
   );
 };
 
