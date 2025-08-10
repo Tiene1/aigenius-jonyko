@@ -1,3 +1,4 @@
+import React from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment } from '@react-three/drei';
 import { useRef, Suspense } from 'react';
@@ -10,7 +11,7 @@ interface RobotModelProps {
 // Composant pour charger le modèle GLTF avec Suspense
 const GLTFModel = () => {
   const groupRef = useRef<any>(null);
-  const { scene } = useGLTF('/models/jonyko-robot.gltf');
+  const { scene } = useGLTF('/models/EcoSentinel_PCB/EcoSentinel_PCB.gltf');
   
   useFrame((state) => {
     if (groupRef.current) {
@@ -19,7 +20,7 @@ const GLTFModel = () => {
   });
 
   return (
-    <group ref={groupRef} scale={[0.5, 0.5, 0.5]} position={[0, 0, 0]}>
+    <group ref={groupRef} scale={[10, 10, 10]} position={[0, 0, 0]}>
       <primitive object={scene} />
     </group>
   );
@@ -76,11 +77,23 @@ const PlaceholderModel = () => {
   );
 };
 
+// Error Boundary pour GLTF
+const GLTFErrorBoundary = ({ children }: { children: React.ReactNode }) => {
+  try {
+    return <>{children}</>;
+  } catch (error) {
+    console.warn('Erreur GLTF:', error);
+    return <PlaceholderModel />;
+  }
+};
+
 const RobotModel = ({ modelPath }: RobotModelProps) => {
   return (
-    <Suspense fallback={<PlaceholderModel />}>
-      <GLTFModel />
-    </Suspense>
+    <GLTFErrorBoundary>
+      <Suspense fallback={<PlaceholderModel />}>
+        <GLTFModel />
+      </Suspense>
+    </GLTFErrorBoundary>
   );
 };
 
