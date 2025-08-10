@@ -243,17 +243,6 @@ const FeaturesAndRobot3D = () => {
                 <Robot3D />
               </div>
               
-              <div className="mt-4 text-center">
-                <p className="text-sm text-muted-foreground mb-3">
-                  Formats 3D supportés
-                </p>
-                <div className="flex flex-wrap justify-center gap-2">
-                  <Badge variant="outline">STEP</Badge>
-                  <Badge variant="outline">OBJ</Badge>
-                  <Badge variant="outline">GLTF</Badge>
-                  <Badge variant="outline">STL</Badge>
-                </div>
-              </div>
             </Card>
           </div>
         </div>
