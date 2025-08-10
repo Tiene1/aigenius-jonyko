@@ -8,10 +8,10 @@ interface RobotModelProps {
   modelPath?: string;
 }
 
-// Composant pour charger le modèle GLTF avec Suspense
+// Composant pour charger le modèle GLB avec Suspense
 const GLTFModel = () => {
   const groupRef = useRef<any>(null);
-  const { scene } = useGLTF('/models/EcoSentinel_PCB/EcoSentinel_PCB.gltf');
+  const { scene } = useGLTF('/models/jonyko-robot.glb');
   
   useFrame((state) => {
     if (groupRef.current) {
@@ -20,7 +20,7 @@ const GLTFModel = () => {
   });
 
   return (
-    <group ref={groupRef} scale={[10, 10, 10]} position={[0, 0, 0]}>
+    <group ref={groupRef} scale={[50, 50, 50]} position={[0, 0, 0]}>
       <primitive object={scene} />
     </group>
   );
@@ -112,11 +112,7 @@ const GLTFErrorBoundary = ({ children }: { children: React.ReactNode }) => {
 };
 
 const RobotModel = ({ modelPath }: RobotModelProps) => {
-  // Pour l'instant, utilisons le placeholder jusqu'à avoir un modèle 3D compatible
-  return <PlaceholderModel />;
-  
-  // Code GLTF commenté temporairement
-  /*
+  // Essayons le modèle GLB maintenant
   return (
     <GLTFErrorBoundary>
       <Suspense fallback={<PlaceholderModel />}>
@@ -124,7 +120,6 @@ const RobotModel = ({ modelPath }: RobotModelProps) => {
       </Suspense>
     </GLTFErrorBoundary>
   );
-  */
 };
 
 const Robot3D = ({ modelPath }: RobotModelProps) => {
