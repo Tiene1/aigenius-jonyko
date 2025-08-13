@@ -98,7 +98,7 @@ const Team = () => {
               </CardHeader>
               
               <CardContent className="flex-1 flex flex-col text-center px-6 pb-6 relative z-10">
-                <p className="text-sm text-muted-foreground leading-relaxed flex-1 min-h-[120px] flex items-center justify-center">
+                <p className="text-sm text-muted-foreground leading-relaxed min-h-[120px]">
                   {member.description}
                 </p>
               </CardContent>
