@@ -176,7 +176,6 @@ const Contact = () => {
                 })}
               </div>
             </div>
-            </div>
 
             {/* Services Disponibles */}
             <Card className="animate-slide-in-left" style={{ animationDelay: '600ms' }}>
