@@ -106,17 +106,19 @@ const Pricing = () => {
           </p>
         </CardHeader>
 
-        <CardContent className="pt-0 flex flex-col flex-1 lg:px-6 xl:px-8 lg:pb-6 xl:pb-8">
-          <ul className="space-y-3 lg:space-y-4 xl:space-y-5 mb-6 flex-1">
-            {option.features.map((feature, idx) => (
-              <li key={idx} className="flex items-center gap-3 lg:gap-4">
-                <div className={`w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-${option.color}/10 flex items-center justify-center flex-shrink-0`}>
-                  <Check className={`h-3 w-3 lg:h-4 lg:w-4 text-${option.color}`} />
-                </div>
-                <span className="text-sm lg:text-base xl:text-lg text-muted-foreground flex-1 leading-relaxed">{feature}</span>
-              </li>
-            ))}
-          </ul>
+        <CardContent className="pt-0 flex flex-col flex-1 lg:px-4 xl:px-6 lg:pb-6 xl:pb-8">
+          <div className="flex justify-center mb-6 flex-1">
+            <ul className="space-y-3 lg:space-y-4 xl:space-y-5 w-full max-w-xs lg:max-w-sm">
+              {option.features.map((feature, idx) => (
+                <li key={idx} className="flex items-center gap-3 lg:gap-4 justify-start">
+                  <div className={`w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-${option.color}/10 flex items-center justify-center flex-shrink-0`}>
+                    <Check className={`h-3 w-3 lg:h-4 lg:w-4 text-${option.color}`} />
+                  </div>
+                  <span className="text-sm lg:text-base xl:text-lg text-muted-foreground leading-relaxed flex-1">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <Button 
             className={`w-full mt-auto lg:py-3 xl:py-4 lg:text-lg xl:text-xl ${
@@ -155,7 +157,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="max-w-8xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* SMARTPHONE : 1 colonne (moins de 640px) */}
           <div className="block sm:hidden">
             <div className="space-y-6">
@@ -180,7 +182,7 @@ const Pricing = () => {
 
           {/* PC/DESKTOP : 3 cartes sur une ligne (1024px et plus) */}
           <div className="hidden lg:block">
-            <div className="grid grid-cols-3 gap-10 xl:gap-12 items-start">
+            <div className="grid grid-cols-3 gap-6 lg:gap-8 items-start">
               {pricingOptions.map((option, index) => renderPricingCard(option, index))}
             </div>
           </div>
