@@ -1,10 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Users, 
-  Linkedin,
-  Mail
-} from "lucide-react";
+import { Users } from "lucide-react";
 import anselmePic from "@/assets/anselme.jpg";
 import jonyPic from "@/assets/jony.jpg";
 import karimouPic from "@/assets/karimou.jpg";
@@ -18,40 +14,35 @@ const Team = () => {
       name: "Anselme",
       role: "Électrotechnicien",
       description: "Électrotechnicien, passionné de nouvelles technologies.",
-      image: anselmePic,
-      specialties: ["Électrotechnique", "Nouvelles Technologies", "Innovation", "Systèmes Électriques"]
+      image: anselmePic
     },
     {
       id: 2,
       name: "Jony",
       role: "Chef d'équipe et Chef de projet",
       description: "Chef d'équipe et chef de projet passionné par l'innovation, j'allie expertise technique et sens du leadership pour mener à bien le projet, de la conception à la réalisation. Avec une expérience en automatisation, robotique et gestion d'équipes pluridisciplinaires, je veille à la performance, à la qualité et au respect des délais, tout en motivant mes collaborateurs à donner le meilleur d'eux-mêmes.",
-      image: jonyPic,
-      specialties: ["Leadership", "Automatisation", "Robotique", "Gestion d'équipe"]
+      image: jonyPic
     },
     {
       id: 3,
       name: "Karimou",
       role: "Technicien Supérieur en Électronique",
       description: "Technicien Supérieur en Électronique, Systèmes Embarqués et IoT. Passionné par la conception de solutions intelligentes intégrant électronique, programmation embarquée et connectivité IoT.",
-      image: karimouPic,
-      specialties: ["Électronique", "Systèmes Embarqués", "IoT", "Programmation"]
+      image: karimouPic
     },
     {
       id: 4,
       name: "Ndehou",
       role: "Master IA & Communication",
       description: "Actuellement en Master en Intelligence Artificielle et chargé de communication chez AIGENIUS GROUPE, je suis passionné par la robotique et l'agriculture durable. Engagé et motivé, je m'investis dans le développement de solutions technologiques innovantes pour relever des défis concrets et répondre aux problématiques actuelles.",
-      image: ndehouPic,
-      specialties: ["Intelligence Artificielle", "Communication", "Robotique", "Agriculture durable"]
+      image: ndehouPic
     },
     {
       id: 5,
       name: "Membre 5",
       role: "Développeur système embarqué",
       description: "Développeur système embarqué Responsable maquettiste AIGENIUS groupe son parcours allie innovation, discipline.",
-      image: membre5Pic,
-      specialties: ["Systèmes embarqués", "Maquettage", "Innovation", "Discipline"]
+      image: membre5Pic
     }
   ];
 
@@ -100,37 +91,9 @@ const Team = () => {
               </CardHeader>
               
               <CardContent className="flex-1 flex flex-col">
-                <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-1">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {member.description}
                 </p>
-                
-                {/* Spécialités */}
-                <div className="mt-auto">
-                  <h4 className="text-sm font-semibold mb-2">Spécialités :</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {member.specialties.map((specialty, idx) => (
-                      <Badge 
-                        key={idx} 
-                        variant="outline" 
-                        className="text-xs border-primary/30 text-primary"
-                      >
-                        {specialty}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Boutons de contact */}
-                <div className="flex gap-2 mt-4">
-                  <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-xs bg-primary/10 hover:bg-primary/20 text-primary rounded-md transition-colors">
-                    <Linkedin className="w-3 h-3" />
-                    LinkedIn
-                  </button>
-                  <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-xs bg-secondary/10 hover:bg-secondary/20 text-secondary rounded-md transition-colors">
-                    <Mail className="w-3 h-3" />
-                    Contact
-                  </button>
-                </div>
               </CardContent>
             </Card>
           ))}
