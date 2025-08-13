@@ -28,7 +28,7 @@ const Navbar = () => {
             <img 
               src={logoAigenius} 
               alt="AiGENIUS GROUPE Logo" 
-              className="h-13 w-auto"
+              className="h-12 w-auto"
             />
           </div>
 
