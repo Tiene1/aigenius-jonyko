@@ -81,7 +81,7 @@ const Contact = () => {
         <div className="space-y-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-5 lg:gap-5">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
@@ -90,17 +90,17 @@ const Contact = () => {
                     className={`group transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-slide-in-left h-full`}
                     style={{ animationDelay: `${index * 150}ms` }}
                   >
-                    <CardContent className="p-6 h-full flex flex-col">
-                      <div className="flex items-start gap-4 flex-1">
-                        <div className={`p-3 rounded-lg bg-${info.color}/10 flex-shrink-0`}>
-                          <IconComponent className={`h-5 w-5 text-${info.color}`} />
+                    <CardContent className="p-4 sm:p-5 md:p-4 lg:p-5 h-full flex flex-col">
+                      <div className="flex items-start gap-3 sm:gap-4 md:gap-3 lg:gap-4 flex-1">
+                        <div className={`p-2 sm:p-3 md:p-2 lg:p-3 rounded-lg bg-${info.color}/10 flex-shrink-0`}>
+                          <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 md:h-4 md:w-4 lg:h-5 lg:w-5 text-${info.color}`} />
                         </div>
-                        <div className="flex-1">
-                          <h3 className="font-semibold mb-1">{info.title}</h3>
-                          <p className={`text-${info.color} font-medium mb-1 break-all text-sm`}>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold mb-1 text-sm sm:text-base md:text-sm lg:text-base">{info.title}</h3>
+                          <p className={`text-${info.color} font-medium mb-1 break-all text-xs sm:text-sm md:text-xs lg:text-sm truncate`}>
                             {info.content}
                           </p>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-xs sm:text-sm md:text-xs lg:text-sm text-muted-foreground">
                             {info.subContent}
                           </p>
                         </div>
@@ -117,7 +117,7 @@ const Contact = () => {
                 <CardTitle className="text-center">Services Clients Disponibles</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-5 lg:gap-5">
                   {services.map((service, index) => {
                     const IconComponent = service.icon;
                     return (
@@ -141,7 +141,7 @@ const Contact = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-5 lg:gap-5 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
             <Card className="bg-gradient-primary text-primary-foreground h-full flex flex-col">
               <CardHeader className="flex-shrink-0">
                 <CardTitle className="text-white">Demande de Devis</CardTitle>

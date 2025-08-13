@@ -67,7 +67,7 @@ const Team = () => {
 
         <div className="max-w-7xl mx-auto">
           {/* Première rangée - 3 cartes */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-7 mb-6 sm:mb-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-7 lg:gap-7 mb-6 sm:mb-7">
             {teamMembers.slice(0, 3).map((member, index) => (
             <Card 
               key={member.id}
@@ -99,8 +99,8 @@ const Team = () => {
                 </p>
               </CardHeader>
               
-              <CardContent className="flex-1 flex flex-col text-center px-4 sm:px-6 md:px-5 pb-4 sm:pb-6 md:pb-5 relative z-10">
-                <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed min-h-[100px] sm:min-h-[120px] md:min-h-[110px]">
+              <CardContent className="flex-1 flex flex-col text-center px-4 sm:px-5 md:px-4 lg:px-4 pb-4 sm:pb-5 md:pb-4 lg:pb-4 relative z-10">
+                <p className="text-xs sm:text-sm md:text-xs lg:text-sm text-muted-foreground leading-relaxed min-h-[100px] sm:min-h-[120px] md:min-h-[140px] lg:min-h-[140px] overflow-hidden">
                   {member.description}
                 </p>
               </CardContent>
@@ -110,7 +110,7 @@ const Team = () => {
           
           {/* Deuxième rangée - 2 cartes centrées */}
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 sm:gap-7 md:gap-7 max-w-2xl w-full px-4 sm:px-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-7 md:gap-7 lg:gap-7 max-w-2xl w-full px-4 sm:px-0">
               {teamMembers.slice(3, 5).map((member, index) => (
               <Card 
                 key={member.id}
