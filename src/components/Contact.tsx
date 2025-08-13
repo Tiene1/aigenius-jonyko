@@ -61,6 +61,34 @@ const Contact = () => {
     }
   ];
 
+  const renderContactCard = (info: typeof contactInfo[0], index: number) => {
+    const IconComponent = info.icon;
+    return (
+      <Card 
+        key={info.title}
+        className="group transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-slide-in-left h-full"
+        style={{ animationDelay: `${index * 150}ms` }}
+      >
+        <CardContent className="p-4 sm:p-5 lg:p-6 h-full flex flex-col">
+          <div className="flex items-start gap-3 sm:gap-4 flex-1">
+            <div className={`p-2 sm:p-3 rounded-lg bg-${info.color}/10 flex-shrink-0`}>
+              <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 text-${info.color}`} />
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="font-semibold mb-1 text-sm sm:text-base">{info.title}</h3>
+              <p className={`text-${info.color} font-medium mb-1 text-xs sm:text-sm break-all`}>
+                {info.content}
+              </p>
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                {info.subContent}
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  };
+
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,7 +96,7 @@ const Contact = () => {
           <Badge variant="outline" className="mb-4 border-primary text-primary">
             Contact
           </Badge>
-          <h2 className="text-3xl md:text-3xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Parlons de Votre Projet
             <span className="block text-primary">Agricole</span>
           </h2>
@@ -78,189 +106,116 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="space-y-12 max-w-6xl mx-auto">
+        <div className="space-y-12 max-w-7xl mx-auto">
           {/* Contact Information */}
-          <div className="space-y-6">
-            {/* Version mobile - une colonne */}
-            <div className="grid grid-cols-1 gap-4 sm:hidden">
-              {contactInfo.map((info, index) => {
-                const IconComponent = info.icon;
-                return (
-                  <Card 
-                    key={info.title}
-                    className={`group transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-slide-in-left h-full`}
-                    style={{ animationDelay: `${index * 150}ms` }}
-                  >
-                    <CardContent className="p-4 h-full flex flex-col">
-                      <div className="flex items-start gap-4 flex-1">
-                        <div className={`p-3 rounded-lg bg-${info.color}/10 flex-shrink-0`}>
-                          <IconComponent className={`h-5 w-5 text-${info.color}`} />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold mb-1">{info.title}</h3>
-                          <p className={`text-${info.color} font-medium mb-1 break-all`}>
-                            {info.content}
-                          </p>
-                          <p className="text-sm text-muted-foreground">
-                            {info.subContent}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
+          <div className="space-y-8">
+            {/* SMARTPHONE : 1 colonne (moins de 640px) */}
+            <div className="block sm:hidden">
+              <div className="space-y-4">
+                {contactInfo.map((info, index) => renderContactCard(info, index))}
+              </div>
             </div>
 
-            {/* Version tablette et plus - 2x2 disposition */}
-            <div className="hidden sm:block">
+            {/* TABLETTE : 2x2 disposition (640px à 1024px) */}
+            <div className="hidden sm:block lg:hidden">
               {/* Première rangée - Adresse et Email */}
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-5 lg:gap-5 mb-4 sm:mb-5 md:mb-5 lg:mb-5">
-                {contactInfo.slice(0, 2).map((info, index) => {
-                  const IconComponent = info.icon;
-                  return (
-                    <Card 
-                      key={info.title}
-                      className={`group transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-slide-in-left h-full md:col-span-2 lg:col-span-2`}
-                      style={{ animationDelay: `${index * 150}ms` }}
-                    >
-                      <CardContent className="p-4 sm:p-5 md:p-4 lg:p-5 h-full flex flex-col">
-                        <div className="flex items-start gap-3 sm:gap-4 md:gap-3 lg:gap-4 flex-1">
-                          <div className={`p-2 sm:p-3 md:p-2 lg:p-3 rounded-lg bg-${info.color}/10 flex-shrink-0`}>
-                            <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 md:h-4 md:w-4 lg:h-5 lg:w-5 text-${info.color}`} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold mb-1 text-sm sm:text-base md:text-sm lg:text-base">{info.title}</h3>
-                            <p className={`text-${info.color} font-medium mb-1 break-all text-xs sm:text-sm md:text-xs lg:text-sm truncate`}>
-                              {info.content}
-                            </p>
-                            <p className="text-xs sm:text-sm md:text-xs lg:text-sm text-muted-foreground">
-                              {info.subContent}
-                            </p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
+              <div className="grid grid-cols-2 gap-5 mb-6">
+                {contactInfo.slice(0, 2).map((info, index) => renderContactCard(info, index))}
               </div>
               
               {/* Deuxième rangée - Commercial et Support technique */}
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-5 lg:gap-5">
-                {contactInfo.slice(2, 4).map((info, index) => {
-                  const IconComponent = info.icon;
-                  return (
-                    <Card 
-                      key={info.title}
-                      className={`group transition-all duration-300 hover:shadow-lg hover:-translate-y-1 animate-slide-in-left h-full md:col-span-2 lg:col-span-2`}
-                      style={{ animationDelay: `${(index + 2) * 150}ms` }}
-                    >
-                      <CardContent className="p-4 sm:p-5 md:p-4 lg:p-5 h-full flex flex-col">
-                        <div className="flex items-start gap-3 sm:gap-4 md:gap-3 lg:gap-4 flex-1">
-                          <div className={`p-2 sm:p-3 md:p-2 lg:p-3 rounded-lg bg-${info.color}/10 flex-shrink-0`}>
-                            <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 md:h-4 md:w-4 lg:h-5 lg:w-5 text-${info.color}`} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold mb-1 text-sm sm:text-base md:text-sm lg:text-base">{info.title}</h3>
-                            <p className={`text-${info.color} font-medium mb-1 break-all text-xs sm:text-sm md:text-xs lg:text-sm truncate`}>
-                              {info.content}
-                            </p>
-                            <p className="text-xs sm:text-sm md:text-xs lg:text-sm text-muted-foreground">
-                              {info.subContent}
-                            </p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
+              <div className="grid grid-cols-2 gap-5">
+                {contactInfo.slice(2, 4).map((info, index) => renderContactCard(info, index + 2))}
               </div>
             </div>
 
-            {/* Services Disponibles */}
-            <Card className="animate-slide-in-left" style={{ animationDelay: '600ms' }}>
-              <CardHeader>
-                <CardTitle className="text-center">Services Clients Disponibles</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-5 lg:gap-5">
-                  {services.map((service, index) => {
-                    const IconComponent = service.icon;
-                    return (
-                      <div 
-                        key={service.title}
-                        className="text-center space-y-3"
-                      >
-                        <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full">
-                          <IconComponent className="h-6 w-6 text-primary" />
-                        </div>
-                        <h4 className="font-semibold">{service.title}</h4>
-                        <p className="text-sm text-muted-foreground">
-                          {service.description}
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-              </CardContent>
-            </Card>
+            {/* PC/DESKTOP : 4 cartes sur une ligne (1024px et plus) */}
+            <div className="hidden lg:block">
+              <div className="grid grid-cols-4 gap-6">
+                {contactInfo.map((info, index) => renderContactCard(info, index))}
+              </div>
+            </div>
           </div>
 
+          {/* Services Disponibles */}
+          <Card className="animate-slide-in-left" style={{ animationDelay: '600ms' }}>
+            <CardHeader>
+              <CardTitle className="text-center text-xl sm:text-2xl">Services Clients Disponibles</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                {services.map((service, index) => {
+                  const IconComponent = service.icon;
+                  return (
+                    <div 
+                      key={service.title}
+                      className="text-center space-y-3"
+                    >
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full">
+                        <IconComponent className="h-6 w-6 text-primary" />
+                      </div>
+                      <h4 className="font-semibold text-base sm:text-lg">{service.title}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {service.description}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Call to Action */}
-          <div className="max-w-6xl mx-auto">
-            {/* Première rangée - 2 cartes */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-8 lg:gap-5 mb-6 md:mb-8 lg:mb-0 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
-            <Card className="bg-gradient-primary text-primary-foreground h-full flex flex-col min-h-[280px] md:min-h-[320px]">
-              <CardHeader className="flex-shrink-0 p-6 md:p-8">
-                <CardTitle className="text-white text-xl md:text-2xl">Demande de Devis</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1 flex flex-col justify-between p-6 md:p-8 pt-0">
-                <p className="text-primary-foreground/90 text-base md:text-lg mb-6">
-                  Obtenez un devis personnalisé pour votre exploitation agricole
-                </p>
-                <Button 
-                  variant="secondary"
-                  className="w-full bg-white text-primary hover:bg-white/90 mt-auto py-3 md:py-4 text-base md:text-lg"
-                  onClick={() => window.open('mailto:robotjonyko@gmail.com?subject=Demande de devis JONYKO&body=Bonjour, je souhaiterais recevoir un devis pour le robot agricole JONYKO.', '_blank')}
-                >
-                  <Mail className="h-5 w-5 mr-3" />
-                  Demander un devis
-                </Button>
-              </CardContent>
-            </Card>
+          <div className="space-y-8">
+            {/* SMARTPHONE : 1 colonne (moins de 640px) */}
+            <div className="block sm:hidden">
+              <div className="space-y-6 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
+                <Card className="bg-gradient-primary text-primary-foreground">
+                  <CardHeader className="p-6">
+                    <CardTitle className="text-white text-xl">Demande de Devis</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-6 pt-0">
+                    <p className="text-primary-foreground/90 text-base mb-6">
+                      Obtenez un devis personnalisé pour votre exploitation agricole
+                    </p>
+                    <Button 
+                      variant="secondary"
+                      className="w-full bg-white text-primary hover:bg-white/90 py-3 text-base"
+                      onClick={() => window.open('mailto:robotjonyko@gmail.com?subject=Demande de devis JONYKO&body=Bonjour, je souhaiterais recevoir un devis pour le robot agricole JONYKO.', '_blank')}
+                    >
+                      <Mail className="h-5 w-5 mr-3" />
+                      Demander un devis
+                    </Button>
+                  </CardContent>
+                </Card>
 
-            <Card className="bg-gradient-tech text-secondary-foreground h-full flex flex-col min-h-[280px] md:min-h-[320px]">
-              <CardHeader className="flex-shrink-0 p-6 md:p-8">
-                <CardTitle className="text-black text-xl md:text-2xl">Support Technique</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1 flex flex-col justify-between p-6 md:p-8 pt-0">
-                <p className="text-secondary-foreground/90 text-base md:text-lg mb-6">
-                  Besoin d'assistance ? Notre équipe technique est là pour vous aider
-                </p>
-                <Button 
-                  variant="secondary"
-                  className="w-full bg-white text-secondary hover:bg-white/90 mt-auto py-3 md:py-4 text-base md:text-lg"
-                  onClick={() => window.open('tel:+22505559384444', '_blank')}
-                >
-                  <Phone className="h-5 w-5 mr-3" />
-                  Appeler le support
-                </Button>
-              </CardContent>
-            </Card>
+                <Card className="bg-gradient-tech text-secondary-foreground">
+                  <CardHeader className="p-6">
+                    <CardTitle className="text-black text-xl">Support Technique</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-6 pt-0">
+                    <p className="text-secondary-foreground/90 text-base mb-6">
+                      Besoin d'assistance ? Notre équipe technique est là pour vous aider
+                    </p>
+                    <Button 
+                      variant="secondary"
+                      className="w-full bg-white text-secondary hover:bg-white/90 py-3 text-base"
+                      onClick={() => window.open('tel:+22505559384444', '_blank')}
+                    >
+                      <Phone className="h-5 w-5 mr-3" />
+                      Appeler le support
+                    </Button>
+                  </CardContent>
+                </Card>
 
-            </div>
-            
-            {/* Deuxième rangée - Carte Engagement Qualité centrée sur tablette */}
-            <div className="hidden md:flex lg:hidden justify-center mt-8">
-              <div className="max-w-md w-full">
-                <Card className="h-full flex flex-col min-h-[280px] md:min-h-[320px]">
-                  <CardHeader className="flex-shrink-0 p-6 md:p-8">
-                    <CardTitle className="flex items-center gap-2 justify-center text-xl md:text-2xl">
+                <Card>
+                  <CardHeader className="p-6">
+                    <CardTitle className="flex items-center gap-2 justify-center text-xl">
                       <div className="w-2 h-2 bg-accent rounded-full animate-glow-pulse" />
                       Engagement Qualité
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="flex-1 space-y-4 md:space-y-5 text-base md:text-lg text-muted-foreground p-6 md:p-8 pt-0">
+                  <CardContent className="p-6 pt-0 space-y-4 text-base text-muted-foreground">
                     <div className="flex items-center gap-3">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                       Suivi personnalisé de chaque client
@@ -281,35 +236,151 @@ const Contact = () => {
                 </Card>
               </div>
             </div>
-            
-            {/* Version desktop - 3ème carte intégrée */}
+
+            {/* TABLETTE : 2 cartes en haut, 1 centrée en bas (640px à 1024px) */}
+            <div className="hidden sm:block lg:hidden">
+              {/* Première rangée - 2 cartes */}
+              <div className="grid grid-cols-2 gap-8 mb-8 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
+                <Card className="bg-gradient-primary text-primary-foreground">
+                  <CardHeader className="p-6">
+                    <CardTitle className="text-white text-xl">Demande de Devis</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-6 pt-0">
+                    <p className="text-primary-foreground/90 text-base mb-6">
+                      Obtenez un devis personnalisé pour votre exploitation agricole
+                    </p>
+                    <Button 
+                      variant="secondary"
+                      className="w-full bg-white text-primary hover:bg-white/90 py-3 text-base"
+                      onClick={() => window.open('mailto:robotjonyko@gmail.com?subject=Demande de devis JONYKO&body=Bonjour, je souhaiterais recevoir un devis pour le robot agricole JONYKO.', '_blank')}
+                    >
+                      <Mail className="h-5 w-5 mr-3" />
+                      Demander un devis
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-tech text-secondary-foreground">
+                  <CardHeader className="p-6">
+                    <CardTitle className="text-black text-xl">Support Technique</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-6 pt-0">
+                    <p className="text-secondary-foreground/90 text-base mb-6">
+                      Besoin d'assistance ? Notre équipe technique est là pour vous aider
+                    </p>
+                    <Button 
+                      variant="secondary"
+                      className="w-full bg-white text-secondary hover:bg-white/90 py-3 text-base"
+                      onClick={() => window.open('tel:+22505559384444', '_blank')}
+                    >
+                      <Phone className="h-5 w-5 mr-3" />
+                      Appeler le support
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+              
+              {/* Deuxième rangée - Carte Engagement Qualité centrée */}
+              <div className="flex justify-center">
+                <div className="w-full max-w-md">
+                  <Card>
+                    <CardHeader className="p-6">
+                      <CardTitle className="flex items-center gap-2 justify-center text-xl">
+                        <div className="w-2 h-2 bg-accent rounded-full animate-glow-pulse" />
+                        Engagement Qualité
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-6 pt-0 space-y-4 text-base text-muted-foreground">
+                      <div className="flex items-center gap-3">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                        Suivi personnalisé de chaque client
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
+                        Formation continue des équipes
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-1.5 h-1.5 bg-accent rounded-full" />
+                        Amélioration continue des produits
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                        Transparence totale sur les tarifs
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </div>
+
+            {/* PC/DESKTOP : 3 cartes sur une ligne (1024px et plus) */}
             <div className="hidden lg:block">
-              <Card className="h-full flex flex-col min-h-[280px] md:min-h-[320px]">
-                <CardHeader className="flex-shrink-0 p-6 md:p-8">
-                  <CardTitle className="flex items-center gap-2 text-xl md:text-2xl">
-                    <div className="w-2 h-2 bg-accent rounded-full animate-glow-pulse" />
-                    Engagement Qualité
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="flex-1 space-y-4 md:space-y-5 text-base md:text-lg text-muted-foreground p-6 md:p-8 pt-0">
-                  <div className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Suivi personnalisé de chaque client
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
-                    Formation continue des équipes
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                    Amélioration continue des produits
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    Transparence totale sur les tarifs
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="grid grid-cols-3 gap-8 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
+                <Card className="bg-gradient-primary text-primary-foreground">
+                  <CardHeader className="p-8">
+                    <CardTitle className="text-white text-2xl">Demande de Devis</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-8 pt-0">
+                    <p className="text-primary-foreground/90 text-lg mb-6">
+                      Obtenez un devis personnalisé pour votre exploitation agricole
+                    </p>
+                    <Button 
+                      variant="secondary"
+                      className="w-full bg-white text-primary hover:bg-white/90 py-4 text-lg"
+                      onClick={() => window.open('mailto:robotjonyko@gmail.com?subject=Demande de devis JONYKO&body=Bonjour, je souhaiterais recevoir un devis pour le robot agricole JONYKO.', '_blank')}
+                    >
+                      <Mail className="h-5 w-5 mr-3" />
+                      Demander un devis
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-tech text-secondary-foreground">
+                  <CardHeader className="p-8">
+                    <CardTitle className="text-black text-2xl">Support Technique</CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-8 pt-0">
+                    <p className="text-secondary-foreground/90 text-lg mb-6">
+                      Besoin d'assistance ? Notre équipe technique est là pour vous aider
+                    </p>
+                    <Button 
+                      variant="secondary"
+                      className="w-full bg-white text-secondary hover:bg-white/90 py-4 text-lg"
+                      onClick={() => window.open('tel:+22505559384444', '_blank')}
+                    >
+                      <Phone className="h-5 w-5 mr-3" />
+                      Appeler le support
+                    </Button>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader className="p-8">
+                    <CardTitle className="flex items-center gap-2 text-2xl">
+                      <div className="w-2 h-2 bg-accent rounded-full animate-glow-pulse" />
+                      Engagement Qualité
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-8 pt-0 space-y-5 text-lg text-muted-foreground">
+                    <div className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      Suivi personnalisé de chaque client
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
+                      Formation continue des équipes
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-accent rounded-full" />
+                      Amélioration continue des produits
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      Transparence totale sur les tarifs
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </div>
@@ -317,14 +388,14 @@ const Contact = () => {
         {/* Company Info */}
         <div className="mt-16 text-center animate-fade-in" style={{ animationDelay: '800ms' }}>
           <Card className="max-w-4xl mx-auto bg-gradient-to-r from-background to-muted/50">
-            <CardContent className="p-8">
+            <CardContent className="p-6 sm:p-8">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center">
                   <span className="text-primary-foreground font-bold">A</span>
                 </div>
-                <h3 className="text-2xl font-bold">AiGENIUS GROUPE</h3>
+                <h3 className="text-xl sm:text-2xl font-bold">AiGENIUS GROUPE</h3>
               </div>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm sm:text-base">
                 Pionnier de l'innovation agricole en Côte d'Ivoire, AiGENIUS GROUPE 
                 développe des solutions technologiques avancées pour moderniser 
                 l'agriculture africaine et améliorer la productivité des exploitations.
