@@ -16,42 +16,42 @@ const Team = () => {
     {
       id: 1,
       name: "Anselme",
-      role: "Chef d'équipe et Chef de projet",
-      description: "Chef d'équipe et chef de projet passionné par l'innovation, j'allie expertise technique et sens du leadership pour mener à bien le projet, de la conception à la réalisation. Avec une expérience en automatisation, robotique et gestion d'équipes pluridisciplinaires, je veille à la performance, à la qualité et au respect des délais, tout en motivant mes collaborateurs à donner le meilleur d'eux-mêmes.",
+      role: "Électrotechnicien",
+      description: "Électrotechnicien, passionné de nouvelles technologies.",
       image: anselmePic,
-      specialties: ["Leadership", "Automatisation", "Robotique", "Gestion d'équipe"]
+      specialties: ["Électrotechnique", "Nouvelles Technologies", "Innovation", "Systèmes Électriques"]
     },
     {
       id: 2,
       name: "Jony",
-      role: "Développeur et Concepteur",
-      description: "Passionné de développement et de conception, je me consacre à créer des solutions innovantes et fonctionnelles. Mon expertise couvre le développement logiciel, la conception de systèmes et l'intégration de technologies avancées pour donner vie aux idées les plus ambitieuses.",
+      role: "Chef d'équipe et Chef de projet",
+      description: "Chef d'équipe et chef de projet passionné par l'innovation, j'allie expertise technique et sens du leadership pour mener à bien le projet, de la conception à la réalisation. Avec une expérience en automatisation, robotique et gestion d'équipes pluridisciplinaires, je veille à la performance, à la qualité et au respect des délais, tout en motivant mes collaborateurs à donner le meilleur d'eux-mêmes.",
       image: jonyPic,
-      specialties: ["Développement", "Conception", "Innovation", "Technologie"]
+      specialties: ["Leadership", "Automatisation", "Robotique", "Gestion d'équipe"]
     },
     {
       id: 3,
       name: "Karimou",
-      role: "Ingénieur Systèmes",
-      description: "Spécialiste en ingénierie des systèmes, je conçois et optimise les architectures techniques complexes. Mon rôle consiste à assurer la cohérence, la performance et la fiabilité de tous les composants du système robotique JONYKO.",
+      role: "Technicien Supérieur en Électronique",
+      description: "Technicien Supérieur en Électronique, Systèmes Embarqués et IoT. Passionné par la conception de solutions intelligentes intégrant électronique, programmation embarquée et connectivité IoT.",
       image: karimouPic,
-      specialties: ["Ingénierie", "Systèmes", "Architecture", "Optimisation"]
+      specialties: ["Électronique", "Systèmes Embarqués", "IoT", "Programmation"]
     },
     {
       id: 4,
       name: "Ndehou",
-      role: "Expert Technique",
-      description: "Expert technique polyvalent, j'apporte mon expertise dans les domaines critiques du projet. Je me concentre sur la résolution de problèmes complexes et l'amélioration continue des performances techniques du robot agricole.",
+      role: "Master IA & Communication",
+      description: "Actuellement en Master en Intelligence Artificielle et chargé de communication chez AIGENIUS GROUPE, je suis passionné par la robotique et l'agriculture durable. Engagé et motivé, je m'investis dans le développement de solutions technologiques innovantes pour relever des défis concrets et répondre aux problématiques actuelles.",
       image: ndehouPic,
-      specialties: ["Expertise technique", "Résolution de problèmes", "Performance", "Innovation"]
+      specialties: ["Intelligence Artificielle", "Communication", "Robotique", "Agriculture durable"]
     },
     {
       id: 5,
       name: "Membre 5",
-      role: "Spécialiste Agriculture",
-      description: "Spécialisé dans le domaine agricole, j'apporte une expertise terrain essentielle au projet. Mon rôle est de s'assurer que JONYKO répond parfaitement aux besoins réels des agriculteurs et aux défis de l'agriculture moderne.",
+      role: "Développeur système embarqué",
+      description: "Développeur système embarqué Responsable maquettiste AIGENIUS groupe son parcours allie innovation, discipline.",
       image: membre5Pic,
-      specialties: ["Agriculture", "Terrain", "Besoins utilisateurs", "Efficacité"]
+      specialties: ["Systèmes embarqués", "Maquettage", "Innovation", "Discipline"]
     }
   ];
 
