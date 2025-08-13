@@ -32,21 +32,21 @@ const Hero = () => {
                 <span className="text-base font-medium text-primary">Innovation Agricole</span>
               </div>
               
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
                 <span className="bg-gradient-hero bg-clip-text text-transparent">
                   JONYKO
                 </span>
                 <br />
-                <span className="text-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                <span className="text-foreground text-2xl sm:text-3xl md:text-4xl">
                   Robot Agricole
                 </span>
                 <br />
-                <span className="text-muted-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+                <span className="text-muted-foreground text-xl sm:text-2xl md:text-3xl">
                   Intelligent
                 </span>
               </h1>
               
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-5xl mx-auto leading-relaxed px-4">
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-5xl mx-auto leading-relaxed px-4">
                 Solution innovante pour le transport des récoltes de l'intérieur des champs au bord champs. 
                 Réduisez l'effort physique et optimisez votre logistique post-récolte.
               </p>
@@ -56,7 +56,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
               <Button 
                 size="lg" 
-                className="bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 transform hover:scale-105 px-6 sm:px-10 py-3 sm:py-4 rounded-full text-base sm:text-lg w-full sm:w-auto"
+                className="bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 transform hover:scale-105 px-6 sm:px-10 md:px-9 py-3 sm:py-4 md:py-3 rounded-full text-base sm:text-lg md:text-lg w-full sm:w-auto"
                 onClick={() => scrollToSection("#fonctionnalites")}
               >
                 Découvrir notre robot
@@ -64,7 +64,7 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-6 sm:px-10 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-6 sm:px-10 md:px-9 py-3 sm:py-4 md:py-3 text-base sm:text-lg md:text-lg w-full sm:w-auto"
                 onClick={() => scrollToSection("#contact")}
               >
                 Contactez-nous

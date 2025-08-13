@@ -67,7 +67,7 @@ const Team = () => {
 
         <div className="max-w-7xl mx-auto">
           {/* Première rangée - 3 cartes */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-7 mb-6 sm:mb-7">
             {teamMembers.slice(0, 3).map((member, index) => (
             <Card 
               key={member.id}
@@ -82,7 +82,7 @@ const Team = () => {
                   {/* Container avec effet de border animé */}
                   <div className="relative">
                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-accent opacity-20 group-hover:opacity-40 blur-sm transition-all duration-500 scale-110" />
-                    <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden bg-gradient-primary border-2 sm:border-3 md:border-4 border-white shadow-xl relative z-10 group-hover:scale-105 transition-transform duration-300">
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-30 md:h-30 mx-auto rounded-full overflow-hidden bg-gradient-primary border-2 sm:border-3 md:border-3 border-white shadow-xl relative z-10 group-hover:scale-105 transition-transform duration-300">
                       <img 
                         src={member.image} 
                         alt={`Photo de ${member.name}`}
@@ -91,16 +91,16 @@ const Team = () => {
                     </div>
                   </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-primary mb-2 group-hover:text-primary/90 transition-colors">
+                <h3 className="text-lg sm:text-xl md:text-xl font-bold text-primary mb-2 group-hover:text-primary/90 transition-colors">
                   {member.name}
                 </h3>
-                <p className="text-xs sm:text-sm font-semibold text-secondary uppercase tracking-wide">
+                <p className="text-xs sm:text-sm md:text-sm font-semibold text-secondary uppercase tracking-wide">
                   {member.role}
                 </p>
               </CardHeader>
               
-              <CardContent className="flex-1 flex flex-col text-center px-4 sm:px-6 pb-4 sm:pb-6 relative z-10">
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed min-h-[100px] sm:min-h-[120px]">
+              <CardContent className="flex-1 flex flex-col text-center px-4 sm:px-6 md:px-5 pb-4 sm:pb-6 md:pb-5 relative z-10">
+                <p className="text-xs sm:text-sm md:text-sm text-muted-foreground leading-relaxed min-h-[100px] sm:min-h-[120px] md:min-h-[110px]">
                   {member.description}
                 </p>
               </CardContent>
@@ -110,7 +110,7 @@ const Team = () => {
           
           {/* Deuxième rangée - 2 cartes centrées */}
           <div className="flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-2xl w-full px-4 sm:px-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 sm:gap-7 md:gap-7 max-w-2xl w-full px-4 sm:px-0">
               {teamMembers.slice(3, 5).map((member, index) => (
               <Card 
                 key={member.id}
@@ -125,7 +125,7 @@ const Team = () => {
                     {/* Container avec effet de border animé */}
                     <div className="relative">
                       <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-accent opacity-20 group-hover:opacity-40 blur-sm transition-all duration-500 scale-110" />
-                      <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto rounded-full overflow-hidden bg-gradient-primary border-2 sm:border-3 md:border-4 border-white shadow-xl relative z-10 group-hover:scale-105 transition-transform duration-300">
+                      <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-30 md:h-30 mx-auto rounded-full overflow-hidden bg-gradient-primary border-2 sm:border-3 md:border-3 border-white shadow-xl relative z-10 group-hover:scale-105 transition-transform duration-300">
                         <img 
                           src={member.image} 
                           alt={`Photo de ${member.name}`}

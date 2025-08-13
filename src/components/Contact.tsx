@@ -68,7 +68,7 @@ const Contact = () => {
           <Badge variant="outline" className="mb-4 border-primary text-primary">
             Contact
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-3xl font-bold mb-4">
             Parlons de Votre Projet
             <span className="block text-primary">Agricole</span>
           </h2>
@@ -81,7 +81,7 @@ const Contact = () => {
         <div className="space-y-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
@@ -117,7 +117,7 @@ const Contact = () => {
                 <CardTitle className="text-center">Services Clients Disponibles</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                   {services.map((service, index) => {
                     const IconComponent = service.icon;
                     return (
@@ -141,7 +141,7 @@ const Contact = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
             <Card className="bg-gradient-primary text-primary-foreground h-full flex flex-col">
               <CardHeader className="flex-shrink-0">
                 <CardTitle className="text-white">Demande de Devis</CardTitle>
