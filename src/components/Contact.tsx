@@ -97,8 +97,7 @@ const Contact = () => {
             Contact
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Parlons de Votre Projet
-            <span className="block text-primary">Agricole</span>
+            Parlez de Vos Besoins
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             L'équipe AiGENIUS GROUPE est à votre disposition pour vous accompagner 
