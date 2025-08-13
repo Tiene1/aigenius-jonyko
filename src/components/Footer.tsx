@@ -32,6 +32,7 @@ const Footer = () => {
               <li><a href="#accueil" className="hover:text-primary transition-colors">Accueil</a></li>
               <li><a href="#fonctionnalites" className="hover:text-primary transition-colors">Fonctionnalités & 3D</a></li>
               <li><a href="#prix" className="hover:text-primary transition-colors">Options Commerciales</a></li>
+              <li><a href="#equipe" className="hover:text-primary transition-colors">Notre Équipe</a></li>
               <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>

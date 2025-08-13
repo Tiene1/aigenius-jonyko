@@ -10,6 +10,7 @@ const Navbar = () => {
     { href: "#accueil", label: "Accueil" },
     { href: "#fonctionnalites", label: "Fonctionnalités & 3D" },
     { href: "#prix", label: "Options Commerciales" },
+    { href: "#equipe", label: "Notre Équipe" },
   ];
 
   const scrollToSection = (href: string) => {
