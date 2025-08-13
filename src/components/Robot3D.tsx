@@ -15,7 +15,8 @@ function Model() {
   return (
     <primitive 
       object={gltf.scene} 
-      scale={[8, 8, 8]}
+      scale={[4, 4, 4]}
+      position={[0, 0, 0]}
     />
   );
 }
@@ -39,8 +40,8 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
     <div className="w-full h-[500px] rounded-lg overflow-hidden bg-gradient-to-br from-background to-muted">
       <Canvas
         camera={{ 
-          position: [0, 0, 15], 
-          fov: 60,
+          position: [0, 0, 20], 
+          fov: 50,
         }}
         gl={{ antialias: true }}
       >
@@ -65,11 +66,12 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
           enablePan={true}
           enableZoom={true}
           enableRotate={true}
-          minDistance={8}
-          maxDistance={25}
+          minDistance={10}
+          maxDistance={35}
           autoRotate={false}
           dampingFactor={0.05}
           enableDamping={true}
+          target={[0, 0, 0]}
         />
         
         {/* Environnement */}
