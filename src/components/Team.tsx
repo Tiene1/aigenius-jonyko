@@ -65,8 +65,10 @@ const Team = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {teamMembers.map((member, index) => (
+        <div className="max-w-7xl mx-auto">
+          {/* Première rangée - 3 cartes */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            {teamMembers.slice(0, 3).map((member, index) => (
             <Card 
               key={member.id}
               className="group transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 animate-scale-in h-full flex flex-col relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-2 border-transparent hover:border-primary/20"
@@ -103,7 +105,52 @@ const Team = () => {
                 </p>
               </CardContent>
             </Card>
-          ))}
+            ))}
+          </div>
+          
+          {/* Deuxième rangée - 2 cartes centrées */}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl">
+              {teamMembers.slice(3, 5).map((member, index) => (
+              <Card 
+                key={member.id}
+                className="group transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 animate-scale-in h-full flex flex-col relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-2 border-transparent hover:border-primary/20"
+                style={{ animationDelay: `${(index + 3) * 150}ms` }}
+              >
+                {/* Effet de background animé */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <CardHeader className="text-center pb-6 relative z-10">
+                  <div className="relative mx-auto mb-6">
+                    {/* Container avec effet de border animé */}
+                    <div className="relative">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-accent opacity-20 group-hover:opacity-40 blur-sm transition-all duration-500 scale-110" />
+                      <div className="w-32 h-32 mx-auto rounded-full overflow-hidden bg-gradient-primary border-4 border-white shadow-xl relative z-10 group-hover:scale-105 transition-transform duration-300">
+                        <img 
+                          src={member.image} 
+                          alt={`Photo de ${member.name}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-primary/90 transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm font-semibold text-secondary uppercase tracking-wide">
+                    {member.role}
+                  </p>
+                </CardHeader>
+                
+                <CardContent className="flex-1 flex flex-col text-center px-6 pb-6 relative z-10">
+                  <p className="text-sm text-muted-foreground leading-relaxed min-h-[120px]">
+                    {member.description}
+                  </p>
+                </CardContent>
+              </Card>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Section entreprise */}
