@@ -114,7 +114,7 @@ const Contact = () => {
             {/* Services Disponibles */}
             <Card className="animate-slide-in-left" style={{ animationDelay: '600ms' }}>
               <CardHeader>
-                <CardTitle>Services Clients Disponibles</CardTitle>
+                <CardTitle className="text-center">Services Clients Disponibles</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
