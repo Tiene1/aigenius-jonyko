@@ -80,8 +80,10 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-6 lg:gap-6 max-w-6xl mx-auto">
-          {pricingOptions.map((option, index) => {
+        <div className="max-w-6xl mx-auto">
+          {/* Première rangée - 2 cartes sur tablette */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-6 lg:gap-6 mb-6 md:mb-8 lg:mb-0">
+            {pricingOptions.slice(0, 2).map((option, index) => {
             const IconComponent = option.icon;
             return (
               <Card 
@@ -151,7 +153,89 @@ const Pricing = () => {
                 </CardContent>
               </Card>
             );
-          })}
+            })}
+          </div>
+          
+          {/* Deuxième rangée - 3ème carte centrée sur tablette */}
+          <div className="hidden md:flex lg:hidden justify-center">
+            <div className="max-w-sm w-full">
+              {(() => {
+                const option = pricingOptions[2];
+                const IconComponent = option.icon;
+                return (
+                  <Card 
+                    key={option.title}
+                    className={`relative transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-scale-in ${
+                      option.popular ? 'border-2 border-primary shadow-lg scale-105' : 'border border-border'
+                    }`}
+                    style={{ animationDelay: `${2 * 200}ms` }}
+                  >
+                    {option.popular && (
+                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <Badge className="bg-primary text-primary-foreground px-4 py-1">
+                          Recommandé
+                        </Badge>
+                      </div>
+                    )}
+                    
+                    <CardHeader className="text-center pb-4">
+                      <div className="mb-4">
+                        <div className={`inline-flex p-3 rounded-full ${
+                          option.color === 'primary' ? 'bg-primary/10' :
+                          option.color === 'secondary' ? 'bg-secondary/10' : 'bg-accent/10'
+                        }`}>
+                          <IconComponent className={`h-8 w-8 ${
+                            option.color === 'primary' ? 'text-primary' :
+                            option.color === 'secondary' ? 'text-secondary' : 'text-accent'
+                          }`} />
+                        </div>
+                      </div>
+                      <CardTitle className={`text-xl mb-2 ${
+                        option.color === 'primary' ? 'text-primary' :
+                        option.color === 'secondary' ? 'text-secondary' : 'text-accent'
+                      }`}>
+                        {option.title}
+                      </CardTitle>
+                      <div className="mb-2">
+                        <span className="text-3xl font-bold">{option.price}</span>
+                        <span className="text-muted-foreground text-sm ml-1">{option.currency}</span>
+                      </div>
+                      <p className="text-muted-foreground text-sm">{option.description}</p>
+                    </CardHeader>
+                    
+                    <CardContent className="space-y-4">
+                      <ul className="space-y-3">
+                        {option.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-center gap-3">
+                            <Check className={`h-4 w-4 flex-shrink-0 ${
+                              option.color === 'primary' ? 'text-primary' :
+                              option.color === 'secondary' ? 'text-secondary' : 'text-accent'
+                            }`} />
+                            <span className="text-sm">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      
+                      <Button 
+                        className={`w-full ${
+                          option.popular 
+                            ? 'bg-gradient-primary hover:shadow-lg hover:shadow-primary/25' 
+                            : option.color === 'secondary'
+                            ? 'bg-gradient-tech hover:shadow-lg hover:shadow-secondary/25'
+                            : 'bg-gradient-accent hover:shadow-lg hover:shadow-accent/25'
+                        } transition-all duration-300`}
+                        onClick={scrollToContact}
+                      >
+                        {option.title === "Achat Direct" ? "Demander un devis" :
+                         option.title === "Location Flexible" ? "Demander location" :
+                         "Planifier maintenance"}
+                      </Button>
+                    </CardContent>
+                  </Card>
+                );
+              })()}
+            </div>
+          </div>
         </div>
 
         {/* Additional Info */}
