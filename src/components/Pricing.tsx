@@ -68,8 +68,8 @@ const Pricing = () => {
     return (
       <Card 
         key={option.title}
-        className={`relative transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-scale-in h-full ${
-          option.popular ? 'border-2 border-primary shadow-lg scale-105' : 'border border-border'
+        className={`relative transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-scale-in h-full flex flex-col ${
+          option.popular ? 'border-2 border-primary shadow-lg lg:scale-100' : 'border border-border'
         }`}
         style={{ animationDelay: `${index * 200}ms` }}
       >
@@ -81,17 +81,17 @@ const Pricing = () => {
           </div>
         )}
 
-        <CardHeader className="text-center pb-4">
+        <CardHeader className="text-center pb-4 flex-shrink-0">
           <div className={`inline-flex items-center justify-center w-16 h-16 mb-4 bg-${option.color}/10 rounded-full mx-auto`}>
             <IconComponent className={`h-8 w-8 text-${option.color}`} />
           </div>
-          <CardTitle className="text-xl mb-2">{option.title}</CardTitle>
+          <CardTitle className="text-xl lg:text-2xl mb-2">{option.title}</CardTitle>
           <div className="mb-2">
-            <span className={`text-2xl sm:text-3xl font-bold text-${option.color}`}>
+            <span className={`text-2xl lg:text-3xl font-bold text-${option.color}`}>
               {option.price.split(' - ')[0]}
             </span>
             {option.price.includes(' - ') && (
-              <span className="text-sm sm:text-lg text-muted-foreground">
+              <span className="text-sm lg:text-lg text-muted-foreground">
                 {' - ' + option.price.split(' - ')[1]}
               </span>
             )}
@@ -99,25 +99,25 @@ const Pricing = () => {
               {option.currency}
             </div>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm lg:text-base text-muted-foreground">
             {option.description}
           </p>
         </CardHeader>
 
         <CardContent className="pt-0 flex flex-col flex-1">
-          <ul className="space-y-3 mb-6 flex-1">
+          <ul className="space-y-3 lg:space-y-4 mb-6 flex-1">
             {option.features.map((feature, idx) => (
               <li key={idx} className="flex items-start gap-3">
                 <div className={`w-5 h-5 rounded-full bg-${option.color}/10 flex items-center justify-center flex-shrink-0 mt-0.5`}>
                   <Check className={`h-3 w-3 text-${option.color}`} />
                 </div>
-                <span className="text-sm text-muted-foreground">{feature}</span>
+                <span className="text-sm lg:text-base text-muted-foreground">{feature}</span>
               </li>
             ))}
           </ul>
 
           <Button 
-            className={`w-full mt-auto ${
+            className={`w-full mt-auto lg:py-3 lg:text-lg ${
               option.popular 
                 ? 'bg-gradient-primary hover:shadow-lg hover:shadow-primary/25' 
                 : option.color === 'secondary'
@@ -177,7 +177,7 @@ const Pricing = () => {
 
           {/* PC/DESKTOP : 3 cartes sur une ligne (1024px et plus) */}
           <div className="hidden lg:block">
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-3 gap-8 items-stretch">
               {pricingOptions.map((option, index) => renderPricingCard(option, index))}
             </div>
           </div>
