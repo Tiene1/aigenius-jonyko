@@ -66,20 +66,22 @@ const Pricing = () => {
   const renderPricingCard = (option: typeof pricingOptions[0], index: number) => {
     const IconComponent = option.icon;
     return (
-      <Card 
-        key={option.title}
-        className={`relative transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-scale-in h-full flex flex-col ${
-          option.popular ? 'border-2 border-primary shadow-lg lg:scale-100' : 'border border-border'
-        }`}
-        style={{ animationDelay: `${index * 200}ms` }}
-      >
+      <div className="relative">
+        {/* Badge repositionné pour ne pas affecter l'alignement */}
         {option.popular && (
-          <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+          <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
             <Badge className="bg-primary text-primary-foreground px-4 py-1">
               Recommandé
             </Badge>
           </div>
         )}
+        <Card 
+          key={option.title}
+          className={`transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-scale-in h-full flex flex-col lg:min-h-[600px] ${
+            option.popular ? 'border-2 border-primary shadow-lg' : 'border border-border'
+          }`}
+          style={{ animationDelay: `${index * 200}ms` }}
+        >
 
         <CardHeader className="text-center pb-4 flex-shrink-0">
           <div className={`inline-flex items-center justify-center w-16 h-16 mb-4 bg-${option.color}/10 rounded-full mx-auto`}>
@@ -131,7 +133,8 @@ const Pricing = () => {
              "Planifier maintenance"}
           </Button>
         </CardContent>
-      </Card>
+        </Card>
+      </div>
     );
   };
 
@@ -177,7 +180,7 @@ const Pricing = () => {
 
           {/* PC/DESKTOP : 3 cartes sur une ligne (1024px et plus) */}
           <div className="hidden lg:block">
-            <div className="grid grid-cols-3 gap-8 items-stretch">
+            <div className="grid grid-cols-3 gap-8 items-start">
               {pricingOptions.map((option, index) => renderPricingCard(option, index))}
             </div>
           </div>
