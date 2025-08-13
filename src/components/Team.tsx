@@ -69,29 +69,36 @@ const Team = () => {
           {teamMembers.map((member, index) => (
             <Card 
               key={member.id}
-              className="transition-all duration-300 hover:shadow-xl hover:-translate-y-2 animate-scale-in h-full flex flex-col"
+              className="group transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 animate-scale-in h-full flex flex-col relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-2 border-transparent hover:border-primary/20"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <CardHeader className="text-center pb-4">
-                <div className="relative mx-auto mb-4">
-                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden bg-gradient-primary mb-3">
-                    <img 
-                      src={member.image} 
-                      alt={`Photo de ${member.name}`}
-                      className="w-full h-full object-cover"
-                    />
+              {/* Effet de background animé */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <CardHeader className="text-center pb-6 relative z-10">
+                <div className="relative mx-auto mb-6">
+                  {/* Container avec effet de border animé */}
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-accent opacity-20 group-hover:opacity-40 blur-sm transition-all duration-500 scale-110" />
+                    <div className="w-32 h-32 mx-auto rounded-full overflow-hidden bg-gradient-primary border-4 border-white shadow-xl relative z-10 group-hover:scale-105 transition-transform duration-300">
+                      <img 
+                        src={member.image} 
+                        alt={`Photo de ${member.name}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-1">
+                <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-primary/90 transition-colors">
                   {member.name}
                 </h3>
-                <p className="text-sm font-medium text-muted-foreground">
+                <p className="text-sm font-semibold text-secondary uppercase tracking-wide">
                   {member.role}
                 </p>
               </CardHeader>
               
-              <CardContent className="flex-1 flex flex-col">
-                <p className="text-sm text-muted-foreground leading-relaxed">
+              <CardContent className="flex-1 flex flex-col text-center px-6 pb-6 relative z-10">
+                <p className="text-sm text-muted-foreground leading-relaxed flex-1 min-h-[120px] flex items-center justify-center">
                   {member.description}
                 </p>
               </CardContent>
