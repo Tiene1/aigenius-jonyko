@@ -77,49 +77,49 @@ const Pricing = () => {
         )}
         <Card 
           key={option.title}
-          className={`transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-scale-in h-full flex flex-col lg:min-h-[600px] ${
+          className={`transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-scale-in h-full flex flex-col lg:min-h-[580px] xl:min-h-[620px] ${
             option.popular ? 'border-2 border-primary shadow-lg' : 'border border-border'
           }`}
           style={{ animationDelay: `${index * 200}ms` }}
         >
 
-        <CardHeader className="text-center pb-4 flex-shrink-0">
-          <div className={`inline-flex items-center justify-center w-16 h-16 mb-4 bg-${option.color}/10 rounded-full mx-auto`}>
-            <IconComponent className={`h-8 w-8 text-${option.color}`} />
+        <CardHeader className="text-center pb-4 flex-shrink-0 lg:p-6 xl:p-8">
+          <div className={`inline-flex items-center justify-center w-16 h-16 lg:w-18 lg:h-18 mb-4 bg-${option.color}/10 rounded-full mx-auto`}>
+            <IconComponent className={`h-8 w-8 lg:h-9 lg:w-9 text-${option.color}`} />
           </div>
-          <CardTitle className="text-xl lg:text-2xl mb-2">{option.title}</CardTitle>
-          <div className="mb-2">
-            <span className={`text-2xl lg:text-3xl font-bold text-${option.color}`}>
+          <CardTitle className="text-xl lg:text-2xl xl:text-3xl mb-3">{option.title}</CardTitle>
+          <div className="mb-3">
+            <span className={`text-2xl lg:text-3xl xl:text-4xl font-bold text-${option.color}`}>
               {option.price.split(' - ')[0]}
             </span>
             {option.price.includes(' - ') && (
-              <span className="text-sm lg:text-lg text-muted-foreground">
+              <span className="text-sm lg:text-lg xl:text-xl text-muted-foreground">
                 {' - ' + option.price.split(' - ')[1]}
               </span>
             )}
-            <div className="text-sm text-muted-foreground mt-1">
+            <div className="text-sm lg:text-base text-muted-foreground mt-1">
               {option.currency}
             </div>
           </div>
-          <p className="text-sm lg:text-base text-muted-foreground">
+          <p className="text-sm lg:text-base xl:text-lg text-muted-foreground">
             {option.description}
           </p>
         </CardHeader>
 
-        <CardContent className="pt-0 flex flex-col flex-1">
-          <ul className="space-y-3 lg:space-y-4 mb-6 flex-1">
+        <CardContent className="pt-0 flex flex-col flex-1 lg:px-6 xl:px-8 lg:pb-6 xl:pb-8">
+          <ul className="space-y-3 lg:space-y-4 xl:space-y-5 mb-6 flex-1">
             {option.features.map((feature, idx) => (
-              <li key={idx} className="flex items-start gap-3">
-                <div className={`w-5 h-5 rounded-full bg-${option.color}/10 flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                  <Check className={`h-3 w-3 text-${option.color}`} />
+              <li key={idx} className="flex items-center gap-3 lg:gap-4">
+                <div className={`w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-${option.color}/10 flex items-center justify-center flex-shrink-0`}>
+                  <Check className={`h-3 w-3 lg:h-4 lg:w-4 text-${option.color}`} />
                 </div>
-                <span className="text-sm lg:text-base text-muted-foreground">{feature}</span>
+                <span className="text-sm lg:text-base xl:text-lg text-muted-foreground flex-1 leading-relaxed">{feature}</span>
               </li>
             ))}
           </ul>
 
           <Button 
-            className={`w-full mt-auto lg:py-3 lg:text-lg ${
+            className={`w-full mt-auto lg:py-3 xl:py-4 lg:text-lg xl:text-xl ${
               option.popular 
                 ? 'bg-gradient-primary hover:shadow-lg hover:shadow-primary/25' 
                 : option.color === 'secondary'
@@ -155,7 +155,7 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-8xl mx-auto">
           {/* SMARTPHONE : 1 colonne (moins de 640px) */}
           <div className="block sm:hidden">
             <div className="space-y-6">
@@ -180,7 +180,7 @@ const Pricing = () => {
 
           {/* PC/DESKTOP : 3 cartes sur une ligne (1024px et plus) */}
           <div className="hidden lg:block">
-            <div className="grid grid-cols-3 gap-8 items-start">
+            <div className="grid grid-cols-3 gap-10 xl:gap-12 items-start">
               {pricingOptions.map((option, index) => renderPricingCard(option, index))}
             </div>
           </div>
