@@ -11,35 +11,35 @@ const Team = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Anselme",
+      name: "Kouassi Bawannou Anselme",
       role: "Électrotechnicien",
       description: "Électrotechnicien, passionné de nouvelles technologies.",
       image: anselmePic
     },
     {
       id: 2,
-      name: "Jony",
+      name: "Koffi Kouamé Jonas",
       role: "Chef d'équipe et Chef de projet",
       description: "Chef d'équipe et chef de projet passionné par l'innovation, j'allie expertise technique et sens du leadership pour mener à bien le projet, de la conception à la réalisation. Avec une expérience en automatisation, robotique et gestion d'équipes pluridisciplinaires, je veille à la performance, à la qualité et au respect des délais, tout en motivant mes collaborateurs à donner le meilleur d'eux-mêmes.",
       image: jonyPic
     },
     {
       id: 3,
-      name: "Karimou",
+      name: "Karimou Farhane",
       role: "Technicien Supérieur en Électronique",
       description: "Technicien Supérieur en Électronique, Systèmes Embarqués et IoT. Passionné par la conception de solutions intelligentes intégrant électronique, programmation embarquée et connectivité IoT.",
       image: karimouPic
     },
     {
       id: 4,
-      name: "Ndehou",
+      name: "N’Dehou Yavo Ulrich",
       role: "Master IA & Communication",
       description: "Actuellement en Master en Intelligence Artificielle et chargé de communication chez AIGENIUS GROUPE, je suis passionné par la robotique et l'agriculture durable. Engagé et motivé, je m'investis dans le développement de solutions technologiques innovantes pour relever des défis concrets et répondre aux problématiques actuelles.",
       image: ndehouPic
     },
     {
       id: 5,
-      name: "Membre 5",
+      name: "Kouadio Jean Mermoz",
       role: "Développeur système embarqué",
       description: "Développeur système embarqué Responsable maquettiste AIGENIUS groupe son parcours allie innovation, discipline.",
       image: membre5Pic
