@@ -2,52 +2,56 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
   Users, 
-  User,
   Linkedin,
   Mail
 } from "lucide-react";
+import anselmePic from "@/assets/anselme.jpg";
+import jonyPic from "@/assets/jony.jpg";
+import karimouPic from "@/assets/karimou.jpg";
+import ndehouPic from "@/assets/ndehou.jpg";
+import membre5Pic from "@/assets/membre5.jpg";
 
 const Team = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Nom du Chef d'équipe", // À remplacer par le vrai nom
+      name: "Anselme",
       role: "Chef d'équipe et Chef de projet",
       description: "Chef d'équipe et chef de projet passionné par l'innovation, j'allie expertise technique et sens du leadership pour mener à bien le projet, de la conception à la réalisation. Avec une expérience en automatisation, robotique et gestion d'équipes pluridisciplinaires, je veille à la performance, à la qualité et au respect des délais, tout en motivant mes collaborateurs à donner le meilleur d'eux-mêmes.",
-      image: "/src/assets/team/member1.jpg", // Photo à ajouter
+      image: anselmePic,
       specialties: ["Leadership", "Automatisation", "Robotique", "Gestion d'équipe"]
     },
     {
       id: 2,
-      name: "Nom du Membre 2", // À remplacer
-      role: "Poste du Membre 2", // À remplacer
-      description: "Description du membre 2 à ajouter...", // À remplacer
-      image: "/src/assets/team/member2.jpg", // Photo à ajouter
-      specialties: ["Spécialité 1", "Spécialité 2", "Spécialité 3"]
+      name: "Jony",
+      role: "Développeur et Concepteur",
+      description: "Passionné de développement et de conception, je me consacre à créer des solutions innovantes et fonctionnelles. Mon expertise couvre le développement logiciel, la conception de systèmes et l'intégration de technologies avancées pour donner vie aux idées les plus ambitieuses.",
+      image: jonyPic,
+      specialties: ["Développement", "Conception", "Innovation", "Technologie"]
     },
     {
       id: 3,
-      name: "Nom du Membre 3", // À remplacer
-      role: "Poste du Membre 3", // À remplacer
-      description: "Description du membre 3 à ajouter...", // À remplacer
-      image: "/src/assets/team/member3.jpg", // Photo à ajouter
-      specialties: ["Spécialité 1", "Spécialité 2", "Spécialité 3"]
+      name: "Karimou",
+      role: "Ingénieur Systèmes",
+      description: "Spécialiste en ingénierie des systèmes, je conçois et optimise les architectures techniques complexes. Mon rôle consiste à assurer la cohérence, la performance et la fiabilité de tous les composants du système robotique JONYKO.",
+      image: karimouPic,
+      specialties: ["Ingénierie", "Systèmes", "Architecture", "Optimisation"]
     },
     {
       id: 4,
-      name: "Nom du Membre 4", // À remplacer
-      role: "Poste du Membre 4", // À remplacer
-      description: "Description du membre 4 à ajouter...", // À remplacer
-      image: "/src/assets/team/member4.jpg", // Photo à ajouter
-      specialties: ["Spécialité 1", "Spécialité 2", "Spécialité 3"]
+      name: "Ndehou",
+      role: "Expert Technique",
+      description: "Expert technique polyvalent, j'apporte mon expertise dans les domaines critiques du projet. Je me concentre sur la résolution de problèmes complexes et l'amélioration continue des performances techniques du robot agricole.",
+      image: ndehouPic,
+      specialties: ["Expertise technique", "Résolution de problèmes", "Performance", "Innovation"]
     },
     {
       id: 5,
-      name: "Nom du Membre 5", // À remplacer
-      role: "Poste du Membre 5", // À remplacer
-      description: "Description du membre 5 à ajouter...", // À remplacer
-      image: "/src/assets/team/member5.jpg", // Photo à ajouter
-      specialties: ["Spécialité 1", "Spécialité 2", "Spécialité 3"]
+      name: "Membre 5",
+      role: "Spécialiste Agriculture",
+      description: "Spécialisé dans le domaine agricole, j'apporte une expertise terrain essentielle au projet. Mon rôle est de s'assurer que JONYKO répond parfaitement aux besoins réels des agriculteurs et aux défis de l'agriculture moderne.",
+      image: membre5Pic,
+      specialties: ["Agriculture", "Terrain", "Besoins utilisateurs", "Efficacité"]
     }
   ];
 
@@ -79,13 +83,12 @@ const Team = () => {
             >
               <CardHeader className="text-center pb-4">
                 <div className="relative mx-auto mb-4">
-                  {/* Image placeholder avec icône utilisateur */}
-                  <div className="w-24 h-24 mx-auto bg-gradient-primary rounded-full flex items-center justify-center mb-3">
-                    <User className="w-12 h-12 text-primary-foreground" />
-                  </div>
-                  {/* Instruction pour ajouter la photo */}
-                  <div className="text-xs text-muted-foreground italic">
-                    📸 Ajouter photo: {member.image}
+                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden bg-gradient-primary mb-3">
+                    <img 
+                      src={member.image} 
+                      alt={`Photo de ${member.name}`}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-1">
