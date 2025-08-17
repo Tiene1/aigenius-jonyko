@@ -125,7 +125,7 @@ const Pricing = () => {
               option.popular 
                 ? 'bg-gradient-primary hover:shadow-lg hover:shadow-primary/25' 
                 : option.color === 'secondary'
-                ? 'bg-gradient-tech hover:shadow-lg hover:shadow-secondary/25'
+                ? 'bg-primary/90 hover:shadow-lg hover:shadow-secondary/25'
                 : 'bg-gradient-accent hover:shadow-lg hover:shadow-accent/25'
             } transition-all duration-300`}
             onClick={scrollToContact}
