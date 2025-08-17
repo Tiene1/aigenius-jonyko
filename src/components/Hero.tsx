@@ -17,7 +17,7 @@ const Hero = () => {
           alt="Robot agricole JONYKO dans un champ"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/80 to-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/40 via-background/30 to-background/20" />
         <div className="absolute inset-0 bg-gradient-mesh" />
       </div>
 
@@ -29,7 +29,7 @@ const Hero = () => {
             <div className="space-y-4 flex flex-col items-center">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
                 <div className="w-2 h-2 bg-primary rounded-full animate-glow-pulse" />
-                <span className="text-base font-medium text-primary">Innovation Agricole</span>
+                <span className="text-base font-medium text-white">Innovation Agricole</span>
               </div>
               
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
@@ -37,16 +37,16 @@ const Hero = () => {
                   JONYKO
                 </span>
                 <br />
-                <span className="text-foreground text-2xl sm:text-3xl md:text-4xl">
+                <span className="text-white text-2xl sm:text-3xl md:text-4xl">
                   Robot Agricole
                 </span>
                 <br />
-                <span className="text-muted-foreground text-xl sm:text-2xl md:text-3xl">
+                <span className="text-white text-xl sm:text-2xl md:text-3xl">
                   Intelligent
                 </span>
               </h1>
               
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-5xl mx-auto leading-relaxed px-4">
+              <p className="text-base sm:text-lg md:text-xl text-white max-w-5xl mx-auto leading-relaxed px-4">
                 Solution innovante pour le transport des récoltes de l'intérieur des champs au bord champs. 
                 Réduisez l'effort physique et optimisez votre logistique post-récolte.
               </p>
@@ -82,7 +82,7 @@ const Hero = () => {
           onClick={() => scrollToSection("#fonctionnalites")}
           className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
         >
-          <span className="text-sm font-medium">Découvrir</span>
+          <span className="text-sm font-medium text-white">Découvrir</span>
           <ChevronDown className="h-4 w-4" />
         </Button>
       </div>
