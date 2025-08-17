@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import logoAigenius from "@/assets/logo-aigenius.png";
 import { 
   MapPin, 
   Mail, 
@@ -389,9 +390,11 @@ const Contact = () => {
           <Card className="max-w-4xl mx-auto bg-gradient-to-r from-background to-muted/50">
             <CardContent className="p-6 sm:p-8">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold">A</span>
-                </div>
+                <img 
+                  src={logoAigenius} 
+                  alt="AiGENIUS GROUPE Logo" 
+                  className="w-10 h-10 object-contain"
+                />
                 <h3 className="text-xl sm:text-2xl font-bold">AiGENIUS GROUPE</h3>
               </div>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm sm:text-base">
