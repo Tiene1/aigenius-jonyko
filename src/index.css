@@ -2,68 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* JONYKO Robot Agricole - Design System 
-All colors MUST be HSL. Agriculture + Technology themed.
+/* JONYKO Robot Agricole - GoGreen EXACT Color System 
+Palette de couleurs EXACTE du design GoGreen Landing Page
 */
 
 @layer base {
   :root {
-    /* Base colors */
-    --background: 0 0% 100%;
-    --foreground: 220 13% 18%;
+    /* Base colors - GoGreen Exact Match */
+    --background: 150 15% 98%;
+    --foreground: 0 0% 12%;
 
-    /* Card components */
+    /* Card components - Pure white like GoGreen */
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 18%;
+    --card-foreground: 0 0% 12%;
 
     /* Popover components */
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 18%;
+    --popover-foreground: 0 0% 12%;
 
-    /* Primary - Aisprid Green */
-    --primary: 120 60% 45%;
-    --primary-foreground: 0 0% 98%;
-    --primary-light: 120 70% 55%;
-    --primary-glow: 120 80% 65%;
+    /* Primary - GoGreen's main green - Dark and uniform */
+    --primary: 148 80% 25%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 148 80% 25%;
+    --primary-glow: 148 80% 25%;
 
-    /* Secondary - Orange Accent */
-    --secondary: 35 91% 65%;
-    --secondary-foreground: 220 13% 18%;
-    --secondary-light: 35 100% 75%;
+    /* Secondary - GoGreen's light green section */
+    --secondary: 150 40% 90%;
+    --secondary-foreground: 0 0% 15%;
+    --secondary-light: 150 45% 95%;
     
-    /* Accent - Purple Tech */
-    --accent: 260 100% 70%;
-    --accent-foreground: 0 0% 98%;
-    --accent-glow: 260 100% 80%;
+    /* Accent - GoGreen's button green - Same as primary */
+    --accent: 148 80% 25%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 148 80% 25%;
 
-    /* Muted */
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    /* Muted - GoGreen's very light background */
+    --muted: 150 25% 96%;
+    --muted-foreground: 0 0% 40%;
 
     /* Destructive */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    /* Borders and inputs */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 115 45% 35%;
+    /* Borders and inputs - Very subtle like GoGreen */
+    --border: 150 20% 90%;
+    --input: 150 20% 90%;
+    --ring: 148 60% 45%;
 
-    /* Design tokens */
-    --radius: 0.75rem;
+    /* Design tokens - More rounded like GoGreen */
+    --radius: 1.5rem;
     
-    /* Custom gradients - Aisprid inspired */
-    --gradient-primary: linear-gradient(135deg, hsl(120 60% 45%), hsl(120 70% 55%));
-    --gradient-secondary: linear-gradient(135deg, hsl(35 91% 65%), hsl(35 100% 75%));
-    --gradient-hero: linear-gradient(135deg, hsl(120 60% 45%), hsl(260 100% 70%));
-    --gradient-accent: linear-gradient(135deg, hsl(260 100% 70%), hsl(260 100% 80%));
-    --gradient-mesh: linear-gradient(45deg, hsl(120 60% 45% / 0.1), hsl(260 100% 70% / 0.1));
+    /* Custom gradients - GoGreen style */
+    --gradient-primary: linear-gradient(135deg, hsl(148 60% 45%), hsl(148 65% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(150 40% 90%), hsl(150 45% 95%));
+    --gradient-hero: linear-gradient(135deg, hsl(150 25% 96%), hsl(150 40% 90%));
+    --gradient-accent: linear-gradient(135deg, hsl(145 70% 42%), hsl(145 75% 52%));
+    --gradient-mesh: linear-gradient(45deg, hsl(148 60% 45% / 0.05), hsl(150 40% 90% / 0.1));
     
-    /* Shadows - Enhanced */
-    --shadow-soft: 0 4px 20px -2px hsl(120 60% 45% / 0.1);
-    --shadow-glow: 0 0 40px hsl(120 80% 65% / 0.2);
-    --shadow-mesh: 0 20px 60px -15px hsl(120 60% 45% / 0.2);
-    --shadow-elegant: 0 10px 30px -10px hsl(120 60% 45% / 0.3);
+    /* Shadows - Very soft like GoGreen */
+    --shadow-soft: 0 4px 20px -2px hsl(148 60% 45% / 0.05);
+    --shadow-glow: 0 0 40px hsl(148 70% 65% / 0.1);
+    --shadow-mesh: 0 20px 60px -15px hsl(148 60% 45% / 0.08);
+    --shadow-elegant: 0 10px 30px -10px hsl(148 60% 45% / 0.12);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -87,57 +87,59 @@ All colors MUST be HSL. Agriculture + Technology themed.
   }
 
   .dark {
-    /* Base colors */
-    --background: 220 13% 9%;
+    /* Base colors - GoGreen Dark Mode */
+    --background: 148 20% 8%;
     --foreground: 0 0% 95%;
 
-    /* Card components */
-    --card: 220 13% 12%;
+    /* Card components - Dark GoGreen */
+    --card: 148 15% 12%;
     --card-foreground: 0 0% 95%;
 
     /* Popover components */
-    --popover: 220 13% 12%;
+    --popover: 148 15% 12%;
     --popover-foreground: 0 0% 95%;
 
-    /* Primary - Agriculture Green Dark */
-    --primary: 115 60% 50%;
-    --primary-foreground: 220 13% 9%;
-    --primary-light: 115 60% 60%;
-    --primary-glow: 115 80% 60%;
+    /* Primary - GoGreen Dark - Same as light mode */
+    --primary: 148 80% 25%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 148 80% 25%;
+    --primary-glow: 148 80% 25%;
 
-    /* Secondary - Tech Blue Dark */
-    --secondary: 215 85% 55%;
-    --secondary-foreground: 220 13% 9%;
-    --secondary-light: 215 85% 65%;
+    /* Secondary - GoGreen Dark Section */
+    --secondary: 150 25% 20%;
+    --secondary-foreground: 0 0% 95%;
+    --secondary-light: 150 30% 25%;
 
-    /* Accent - Premium Gold Dark */
-    --accent: 45 100% 60%;
-    --accent-foreground: 220 13% 9%;
-    --accent-glow: 45 100% 70%;
+    /* Accent - GoGreen Button Dark - More visible */
+    --accent: 145 75% 40%;
+    --accent-foreground: 148 20% 8%;
+    --accent-glow: 145 70% 50%;
 
     /* Muted */
-    --muted: 220 13% 15%;
-    --muted-foreground: 215 13% 65%;
+    --muted: 148 15% 15%;
+    --muted-foreground: 0 0% 65%;
 
     /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 95%;
 
     /* Borders and inputs */
-    --border: 220 13% 20%;
-    --input: 220 13% 20%;
-    --ring: 115 60% 50%;
+    --border: 148 10% 20%;
+    --input: 148 10% 20%;
+    --ring: 148 55% 55%;
 
-    /* Custom gradients dark */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-tech: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent-glow)));
+    /* Custom gradients dark - GoGreen style */
+    --gradient-primary: linear-gradient(135deg, hsl(148 55% 55%), hsl(148 60% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(150 25% 20%), hsl(150 30% 25%));
+    --gradient-hero: linear-gradient(135deg, hsl(148 20% 8%), hsl(150 25% 20%));
+    --gradient-accent: linear-gradient(135deg, hsl(145 60% 50%), hsl(145 65% 60%));
+    --gradient-mesh: linear-gradient(45deg, hsl(148 55% 55% / 0.08), hsl(150 25% 20% / 0.05));
     
-    /* Shadows dark */
-    --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
-    --shadow-tech: 0 8px 32px -4px hsl(var(--secondary) / 0.3);
+    /* Shadows dark - GoGreen soft */
+    --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 40px hsl(148 65% 70% / 0.2);
+    --shadow-mesh: 0 20px 60px -15px hsl(148 55% 55% / 0.15);
+    --shadow-elegant: 0 10px 30px -10px hsl(148 55% 55% / 0.25);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -155,6 +157,17 @@ All colors MUST be HSL. Agriculture + Technology themed.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+  
+  /* Enhanced text rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 }

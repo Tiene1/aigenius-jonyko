@@ -5,58 +5,56 @@ import heroImage from "@/assets/jonyko-hero.jpg";
 const Hero = () => {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.log(`Element with selector ${href} not found`);
+    }
   };
 
   return (
-    <section id="accueil" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background with aisprid-inspired overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Robot agricole JONYKO dans un champ"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-background/40 via-background/30 to-background/20" />
-        <div className="absolute inset-0 bg-gradient-mesh" />
+    <section id="accueil" className="min-h-screen bg-gradient-hero relative overflow-hidden">
+      {/* GoGreen Style Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary/30 to-muted opacity-95" />
+        <div className="absolute top-20 right-10 w-32 h-32 bg-primary rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-40 h-40 bg-primary rounded-full blur-3xl" />
       </div>
 
-      {/* Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 h-full flex items-center justify-center">
-        <div className="flex flex-col items-center justify-center text-center max-w-6xl mx-auto">
-          {/* Text Content */}
-          <div className="space-y-12 animate-slide-in-left w-full flex flex-col items-center">
-            <div className="space-y-4 flex flex-col items-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
-                <div className="w-2 h-2 bg-primary rounded-full animate-glow-pulse" />
-                <span className="text-base font-medium text-white">Innovation Agricole</span>
-              </div>
-              
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
-                <span className="bg-gradient-hero bg-clip-text text-transparent">
-                  JONYKO
-                </span>
-                <br />
-                <span className="text-white text-2xl sm:text-3xl md:text-4xl">
-                  Robot Agricole
-                </span>
-                <br />
-                <span className="text-white text-xl sm:text-2xl md:text-3xl">
-                  Intelligent
+      {/* Main Content - GoGreen Style Layout */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 min-h-screen flex items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+          
+          {/* Left Content - Text */}
+          <div className="space-y-8 animate-slide-in-left">
+            
+            {/* Badge - GoGreen Style */}
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-secondary rounded-full border border-primary/20">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="text-sm font-medium text-foreground">Innovation Agricole</span>
+            </div>
+            
+            {/* Main Title - GoGreen Typography */}
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-display text-foreground">
+                Optimisez 
+                <span className="block text-primary">vos récoltes</span>
+                <span className="block text-2xl sm:text-3xl lg:text-4xl text-foreground font-bold">
+                  avec <span className="text-primary font-black">JONYKO</span>
                 </span>
               </h1>
               
-              <p className="text-base sm:text-lg md:text-xl text-white max-w-5xl mx-auto leading-relaxed px-4">
+              <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-lg">
                 Solution innovante pour le transport des récoltes de l'intérieur des champs au bord champs. 
                 Réduisez l'effort physique et optimisez votre logistique post-récolte.
               </p>
             </div>
 
-            {/* CTA Buttons - Aisprid inspired */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
+            {/* CTA Button - GoGreen Style */}
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg" 
-                className="bg-primary text-primary-foreground hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 transform hover:scale-105 px-6 sm:px-10 md:px-9 py-3 sm:py-4 md:py-3 rounded-full text-base sm:text-lg md:text-lg w-full sm:w-auto"
+                className="bg-primary hover:bg-accent text-primary-foreground px-8 py-4 rounded-2xl text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 onClick={() => scrollToSection("#fonctionnalites")}
               >
                 Découvrir notre robot
@@ -64,25 +62,41 @@ const Hero = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-6 sm:px-10 md:px-9 py-3 sm:py-4 md:py-3 text-base sm:text-lg md:text-lg w-full sm:w-auto"
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-2xl px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105"
                 onClick={() => scrollToSection("#contact")}
               >
                 Contactez-nous
               </Button>
             </div>
           </div>
+
+          {/* Right Content - Visual */}
+          <div className="relative animate-slide-in-right">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src={heroImage} 
+                alt="Robot agricole JONYKO dans un champ"
+                className="w-full h-[500px] lg:h-[600px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent" />
+            </div>
+            
+            {/* Floating Elements - GoGreen Style */}
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-accent rounded-full opacity-20 animate-float" />
+            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-primary rounded-full opacity-30 animate-float" style={{animationDelay: '1s'}} />
+          </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 w-full flex justify-center animate-bounce">
+      {/* Scroll Indicator - GoGreen Style */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <Button 
           variant="ghost" 
           size="sm" 
           onClick={() => scrollToSection("#fonctionnalites")}
-          className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
+          className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-all duration-300"
         >
-          <span className="text-sm font-medium text-white">Découvrir</span>
+          <span className="text-sm font-medium">Découvrir</span>
           <ChevronDown className="h-4 w-4" />
         </Button>
       </div>

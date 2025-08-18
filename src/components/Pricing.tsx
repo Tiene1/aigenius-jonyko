@@ -77,56 +77,56 @@ const Pricing = () => {
         )}
         <Card 
           key={option.title}
-          className={`transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-scale-in h-full flex flex-col lg:min-h-[580px] xl:min-h-[620px] ${
-            option.popular ? 'border-2 border-primary shadow-lg' : 'border border-border'
+          className={`transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 animate-scale-in h-full flex flex-col group ${
+            option.popular ? 'border-2 border-primary shadow-lg hover:shadow-primary/20' : 'border border-border hover:shadow-lg'
           }`}
           style={{ animationDelay: `${index * 200}ms` }}
         >
 
-        <CardHeader className="text-center pb-4 flex-shrink-0 lg:p-6 xl:p-8">
-          <div className={`inline-flex items-center justify-center w-16 h-16 lg:w-18 lg:h-18 mb-4 bg-${option.color}/10 rounded-full mx-auto`}>
-            <IconComponent className={`h-8 w-8 lg:h-9 lg:w-9 text-${option.color}`} />
+        <CardHeader className="text-center pb-4 flex-shrink-0">
+          <div className={`inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 mb-4 bg-primary rounded-full mx-auto transition-all duration-300 group-hover:bg-primary group-hover:scale-110`}>
+            <IconComponent className={`h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 text-primary-foreground`} />
           </div>
-          <CardTitle className="text-xl lg:text-2xl xl:text-3xl mb-3">{option.title}</CardTitle>
+          <CardTitle className="text-lg sm:text-xl lg:text-2xl mb-3 font-display">{option.title}</CardTitle>
           <div className="mb-3">
-            <span className={`text-2xl lg:text-3xl xl:text-4xl font-bold text-${option.color}`}>
+            <span className={`text-xl sm:text-2xl lg:text-3xl font-bold text-primary font-display`}>
               {option.price.split(' - ')[0]}
             </span>
             {option.price.includes(' - ') && (
-              <span className="text-sm lg:text-lg xl:text-xl text-muted-foreground">
+              <span className="text-sm sm:text-base lg:text-lg text-muted-foreground">
                 {' - ' + option.price.split(' - ')[1]}
               </span>
             )}
-            <div className="text-sm lg:text-base text-muted-foreground mt-1">
+            <div className="text-xs sm:text-sm lg:text-base text-muted-foreground mt-1">
               {option.currency}
             </div>
           </div>
-          <p className="text-sm lg:text-base xl:text-lg text-muted-foreground">
+          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground leading-relaxed">
             {option.description}
           </p>
         </CardHeader>
 
-        <CardContent className="pt-0 flex flex-col flex-1 lg:px-4 xl:px-6 lg:pb-6 xl:pb-8">
-          <div className="flex justify-center mb-6 flex-1">
-            <ul className="space-y-3 lg:space-y-4 xl:space-y-5 w-full max-w-xs lg:max-w-sm">
+        <CardContent className="pt-0 flex flex-col flex-1">
+          <div className="flex justify-center mb-4 sm:mb-6 flex-1">
+            <ul className="space-y-2 sm:space-y-3 w-full">
               {option.features.map((feature, idx) => (
-                <li key={idx} className="flex items-center gap-3 lg:gap-4 justify-start">
-                  <div className={`w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-${option.color}/10 flex items-center justify-center flex-shrink-0`}>
-                    <Check className={`h-3 w-3 lg:h-4 lg:w-4 text-${option.color}`} />
+                <li key={idx} className="flex items-start gap-2 sm:gap-3">
+                  <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                    <Check className={`h-2.5 w-2.5 sm:h-3 sm:w-3 text-primary-foreground`} />
                   </div>
-                  <span className="text-sm lg:text-base xl:text-lg text-muted-foreground leading-relaxed flex-1">{feature}</span>
+                  <span className="text-xs sm:text-sm lg:text-base text-muted-foreground leading-relaxed flex-1">{feature}</span>
                 </li>
               ))}
             </ul>
           </div>
 
           <Button 
-            className={`w-full mt-auto lg:py-3 xl:py-4 lg:text-lg xl:text-xl ${
+            className={`w-full mt-auto py-2 sm:py-3 text-sm sm:text-base lg:text-lg ${
               option.popular 
-                ? 'bg-gradient-primary hover:shadow-lg hover:shadow-primary/25' 
+                ? 'bg-gradient-primary hover:shadow-lg hover:shadow-primary/25 hover:scale-105' 
                 : option.color === 'secondary'
-                ? 'bg-primary/90 hover:shadow-lg hover:shadow-secondary/25'
-                : 'bg-gradient-accent hover:shadow-lg hover:shadow-accent/25'
+                ? 'bg-primary/90 hover:shadow-lg hover:shadow-primary/25 hover:scale-105'
+                : 'bg-gradient-accent hover:shadow-lg hover:shadow-accent/25 hover:scale-105'
             } transition-all duration-300`}
             onClick={scrollToContact}
           >
@@ -143,15 +143,15 @@ const Pricing = () => {
   return (
     <section id="prix" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <Badge variant="outline" className="mb-4 border-accent text-accent">
+        <div className="text-center mb-12 lg:mb-16 animate-fade-in px-4">
+          <Badge variant="outline" className="mb-4 border-primary text-primary font-medium">
             Options Commerciales
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 font-display">
             Solutions Flexibles
-            <span className="block text-accent">Pour Chaque Besoin</span>
+            <span className="block text-primary mt-1">Pour Chaque Besoin</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Choisissez la solution qui correspond le mieux à vos besoins et 
             à votre budget agricole
           </p>
@@ -160,7 +160,7 @@ const Pricing = () => {
         <div className="max-w-6xl mx-auto">
           {/* SMARTPHONE : 1 colonne (moins de 640px) */}
           <div className="block sm:hidden">
-            <div className="space-y-6">
+            <div className="space-y-6 px-6">
               {pricingOptions.map((option, index) => renderPricingCard(option, index))}
             </div>
           </div>
@@ -195,20 +195,20 @@ const Pricing = () => {
               <h3 className="text-xl font-bold mb-4">Engagement Qualité AiGENIUS GROUPE</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm text-muted-foreground">
                 <div className="text-center">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Check className="h-4 w-4 text-primary" />
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Check className="h-4 w-4 text-primary-foreground" />
                   </div>
                   <p>Suivi personnalisé de chaque client</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Check className="h-4 w-4 text-secondary" />
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Check className="h-4 w-4 text-primary-foreground" />
                   </div>
                   <p>Respect des délais de livraison</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Check className="h-4 w-4 text-accent" />
+                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Check className="h-4 w-4 text-primary-foreground" />
                   </div>
                   <p>Transparence totale sur tarifs</p>
                 </div>

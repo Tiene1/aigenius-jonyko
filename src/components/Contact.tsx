@@ -72,12 +72,12 @@ const Contact = () => {
       >
         <CardContent className="p-4 sm:p-5 lg:p-6 h-full flex flex-col">
           <div className="flex items-start gap-3 sm:gap-4 flex-1">
-            <div className={`p-2 sm:p-3 rounded-lg bg-${info.color}/10 flex-shrink-0`}>
-              <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 text-${info.color}`} />
+            <div className={`p-2 sm:p-3 rounded-lg bg-primary flex-shrink-0`}>
+              <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground`} />
             </div>
             <div className="flex-1 min-w-0">
               <h3 className="font-semibold mb-1 text-sm sm:text-base">{info.title}</h3>
-              <p className={`text-${info.color} font-medium mb-1 text-xs sm:text-sm break-all`}>
+              <p className={`text-primary font-medium mb-1 text-xs sm:text-sm break-all`}>
                 {info.content}
               </p>
               <p className="text-xs sm:text-sm text-muted-foreground">
@@ -93,14 +93,14 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <Badge variant="outline" className="mb-4 border-primary text-primary">
+        <div className="text-center mb-12 lg:mb-16 animate-fade-in px-4">
+          <Badge variant="outline" className="mb-4 border-primary text-primary font-medium">
             Contact
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 font-display">
             Parlez Nous de Vos Besoins
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             L'équipe AiGENIUS GROUPE est à votre disposition pour vous accompagner 
             dans la modernisation de votre exploitation agricole
           </p>
@@ -111,7 +111,7 @@ const Contact = () => {
           <div className="space-y-8">
             {/* SMARTPHONE : 1 colonne (moins de 640px) */}
             <div className="block sm:hidden">
-              <div className="space-y-4">
+              <div className="space-y-4 px-6">
                 {contactInfo.map((info, index) => renderContactCard(info, index))}
               </div>
             </div>
@@ -143,7 +143,7 @@ const Contact = () => {
               <CardTitle className="text-center text-xl sm:text-2xl">Services Clients Disponibles</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-6 sm:px-0">
                 {services.map((service, index) => {
                   const IconComponent = service.icon;
                   return (
@@ -151,8 +151,8 @@ const Contact = () => {
                       key={service.title}
                       className="text-center space-y-3"
                     >
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full">
-                        <IconComponent className="h-6 w-6 text-primary" />
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-primary rounded-full">
+                        <IconComponent className="h-6 w-6 text-primary-foreground" />
                       </div>
                       <h4 className="font-semibold text-base sm:text-lg">{service.title}</h4>
                       <p className="text-sm text-muted-foreground">
@@ -169,18 +169,18 @@ const Contact = () => {
           <div className="space-y-8">
             {/* SMARTPHONE : 1 colonne (moins de 640px) */}
             <div className="block sm:hidden">
-              <div className="space-y-6 animate-slide-in-up" style={{ animationDelay: '300ms' }}>
+              <div className="space-y-6 animate-slide-in-up px-6" style={{ animationDelay: '300ms' }}>
                 <Card className="bg-gradient-primary text-primary-foreground">
                   <CardHeader className="p-6">
                     <CardTitle className="text-white text-xl">Demande de Devis</CardTitle>
                   </CardHeader>
                   <CardContent className="p-6 pt-0">
-                    <p className="text-primary-foreground/90 text-base mb-6">
+                    <p className="text-white text-base mb-6">
                       Obtenez un devis personnalisé pour votre exploitation agricole
                     </p>
                     <Button 
                       variant="secondary"
-                      className="w-full bg-white text-primary hover:bg-white/90 py-3 text-base"
+                      className="w-full bg-white text-primary hover:bg-primary hover:text-white py-3 text-base transition-all duration-300"
                       onClick={() => window.open('mailto:robotjonyko@gmail.com?subject=Demande de devis JONYKO&body=Bonjour, je souhaiterais recevoir un devis pour le robot agricole JONYKO.', '_blank')}
                     >
                       <Mail className="h-5 w-5 mr-3" />
@@ -189,17 +189,17 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-tech text-secondary-foreground">
+                <Card className="bg-gradient-tech text-primary-foreground">
                   <CardHeader className="p-6">
                     <CardTitle className="text-black text-xl">Support Technique</CardTitle>
                   </CardHeader>
                   <CardContent className="p-6 pt-0">
-                    <p className="text-secondary-foreground/90 text-base mb-6">
+                    <p className="text-foreground text-base mb-6">
                       Besoin d'assistance ? Notre équipe technique est là pour vous aider
                     </p>
                     <Button 
                       variant="secondary"
-                      className="w-full bg-white text-secondary hover:bg-white/90 py-3 text-base"
+                      className="w-full bg-white text-primary hover:bg-primary hover:text-white py-3 text-base transition-all duration-300"
                       onClick={() => window.open('tel:+22505559384444', '_blank')}
                     >
                       <Phone className="h-5 w-5 mr-3" />
@@ -246,12 +246,12 @@ const Contact = () => {
                     <CardTitle className="text-white text-xl">Demande de Devis</CardTitle>
                   </CardHeader>
                   <CardContent className="p-6 pt-0">
-                    <p className="text-primary-foreground/90 text-base mb-6">
+                    <p className="text-white text-base mb-6">
                       Obtenez un devis personnalisé pour votre exploitation agricole
                     </p>
                     <Button 
                       variant="secondary"
-                      className="w-full bg-white text-primary hover:bg-white/90 py-3 text-base"
+                      className="w-full bg-white text-primary hover:bg-primary hover:text-white py-3 text-base transition-all duration-300"
                       onClick={() => window.open('mailto:robotjonyko@gmail.com?subject=Demande de devis JONYKO&body=Bonjour, je souhaiterais recevoir un devis pour le robot agricole JONYKO.', '_blank')}
                     >
                       <Mail className="h-5 w-5 mr-3" />
@@ -260,17 +260,17 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-tech text-secondary-foreground">
+                <Card className="bg-gradient-tech text-primary-foreground">
                   <CardHeader className="p-6">
                     <CardTitle className="text-black text-xl">Support Technique</CardTitle>
                   </CardHeader>
                   <CardContent className="p-6 pt-0">
-                    <p className="text-secondary-foreground/90 text-base mb-6">
+                    <p className="text-foreground text-base mb-6">
                       Besoin d'assistance ? Notre équipe technique est là pour vous aider
                     </p>
                     <Button 
                       variant="secondary"
-                      className="w-full bg-white text-secondary hover:bg-white/90 py-3 text-base"
+                      className="w-full bg-white text-primary hover:bg-primary hover:text-white py-3 text-base transition-all duration-300"
                       onClick={() => window.open('tel:+22505559384444', '_blank')}
                     >
                       <Phone className="h-5 w-5 mr-3" />
@@ -321,12 +321,12 @@ const Contact = () => {
                     <CardTitle className="text-white text-2xl">Demande de Devis</CardTitle>
                   </CardHeader>
                   <CardContent className="p-8 pt-0">
-                    <p className="text-primary-foreground/90 text-lg mb-6">
+                    <p className="text-white text-lg mb-6">
                       Obtenez un devis personnalisé pour votre exploitation agricole
                     </p>
                     <Button 
                       variant="secondary"
-                      className="w-full bg-white text-primary hover:bg-white/90 py-4 text-lg"
+                      className="w-full bg-white text-primary hover:bg-primary hover:text-white transition-all duration-300 py-4 text-lg"
                       onClick={() => window.open('mailto:robotjonyko@gmail.com?subject=Demande de devis JONYKO&body=Bonjour, je souhaiterais recevoir un devis pour le robot agricole JONYKO.', '_blank')}
                     >
                       <Mail className="h-5 w-5 mr-3" />
@@ -335,17 +335,17 @@ const Contact = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-gradient-tech text-secondary-foreground">
+                <Card className="bg-gradient-tech text-primary-foreground">
                   <CardHeader className="p-8">
                     <CardTitle className="text-black text-2xl">Support Technique</CardTitle>
                   </CardHeader>
                   <CardContent className="p-8 pt-0">
-                    <p className="text-secondary-foreground/90 text-lg mb-6">
+                    <p className="text-foreground text-lg mb-6">
                       Besoin d'assistance ? Notre équipe technique est là pour vous aider
                     </p>
                     <Button 
                       variant="secondary"
-                      className="w-full bg-white text-secondary hover:bg-white/90 py-4 text-lg"
+                      className="w-full bg-white text-primary hover:bg-primary hover:text-white transition-all duration-300 py-4 text-lg"
                       onClick={() => window.open('tel:+22505559384444', '_blank')}
                     >
                       <Phone className="h-5 w-5 mr-3" />

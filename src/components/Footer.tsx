@@ -56,7 +56,7 @@ const Footer = () => {
               <p>Interlab Angré 8ème tranche</p>
               <p>Abidjan, Côte d'Ivoire</p>
               <p className="text-primary">robotjonyko@gmail.com</p>
-              <p className="text-secondary">+225 01 40 56 72 89</p>
+              <p className="text-primary">+225 01 40 56 72 89</p>
               <p className="text-accent">+225 05 55 93 84 44</p>
             </div>
           </div>

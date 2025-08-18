@@ -108,7 +108,7 @@ const FeaturesAndRobot3D = () => {
           </Badge>
           <h2 className="text-3xl md:text-3xl font-bold mb-4">
             Découvrez JONYKO en
-            <span className="block bg-gradient-hero bg-clip-text text-transparent">
+            <span className="block text-primary">
               Détail et en 3D
             </span>
           </h2>
@@ -124,7 +124,7 @@ const FeaturesAndRobot3D = () => {
             {/* Modes de Fonctionnement */}
             <div>
               <h3 className="text-2xl font-bold mb-6 text-center">Modes de Fonctionnement</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-5 lg:gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-5 lg:gap-5 px-6 sm:px-0">
                 {modes.map((mode, index) => {
                   const IconComponent = mode.icon;
                   const colorClasses = {
@@ -155,11 +155,11 @@ const FeaturesAndRobot3D = () => {
                     >
                       <CardHeader className="pb-3 sm:pb-4 md:pb-3 lg:pb-4">
                         <div className="flex items-center gap-2 sm:gap-3 md:gap-2 lg:gap-3">
-                          <div className={`p-2 sm:p-3 md:p-2 lg:p-3 rounded-lg ${currentColor.bg}/10 flex-shrink-0`}>
-                            <IconComponent className={`h-5 w-5 sm:h-6 sm:w-6 md:h-5 md:w-5 lg:h-6 lg:w-6 ${currentColor.text}`} />
+                          <div className={`p-2 sm:p-3 md:p-2 lg:p-3 rounded-lg bg-primary flex-shrink-0`}>
+                            <IconComponent className={`h-5 w-5 sm:h-6 sm:w-6 md:h-5 md:w-5 lg:h-6 lg:w-6 text-primary-foreground`} />
                           </div>
                           <div className="min-w-0 flex-1">
-                            <CardTitle className={`text-base sm:text-lg md:text-base lg:text-lg ${currentColor.text} truncate`}>{mode.title}</CardTitle>
+                            <CardTitle className={`text-base sm:text-lg md:text-base lg:text-lg text-primary truncate`}>{mode.title}</CardTitle>
                             <p className="text-xs sm:text-sm md:text-xs lg:text-sm text-muted-foreground line-clamp-2">{mode.description}</p>
                           </div>
                         </div>
@@ -168,7 +168,7 @@ const FeaturesAndRobot3D = () => {
                         <ul className="space-y-1 sm:space-y-2 md:space-y-1 lg:space-y-2">
                           {mode.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm md:text-xs lg:text-sm">
-                              <div className={`w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-1 md:h-1 lg:w-1.5 lg:h-1.5 rounded-full ${currentColor.bg} mt-1.5 flex-shrink-0`} />
+                              <div className={`w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-1 md:h-1 lg:w-1.5 lg:h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0`} />
                               <span className="line-clamp-2">{feature}</span>
                             </li>
                           ))}
@@ -185,7 +185,7 @@ const FeaturesAndRobot3D = () => {
               <h3 className="text-2xl font-bold mb-6 text-center">Spécifications Techniques</h3>
               
               {/* Spécifications principales */}
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-4 lg:gap-4 mb-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-4 lg:gap-4 mb-6 px-6 sm:px-0">
                 {specifications.map((spec, index) => {
                   const IconComponent = spec.icon;
                   return (
@@ -196,8 +196,8 @@ const FeaturesAndRobot3D = () => {
                     >
                       <CardContent className="p-2 sm:p-3 md:p-2 lg:p-3">
                         <div className="text-center">
-                          <div className="p-1 sm:p-2 md:p-1 lg:p-2 rounded-lg bg-primary/10 inline-flex mb-1 sm:mb-2 md:mb-1 lg:mb-2">
-                            <IconComponent className="h-3 w-3 sm:h-4 sm:w-4 md:h-3 md:w-3 lg:h-4 lg:w-4 text-primary" />
+                          <div className="p-1 sm:p-2 md:p-1 lg:p-2 rounded-lg bg-primary inline-flex mb-1 sm:mb-2 md:mb-1 lg:mb-2">
+                            <IconComponent className="h-3 w-3 sm:h-4 sm:w-4 md:h-3 md:w-3 lg:h-4 lg:w-4 text-primary-foreground" />
                           </div>
                           <div className="font-semibold text-primary text-xs sm:text-sm md:text-xs lg:text-sm">{spec.value}</div>
                           <div className="text-xs sm:text-xs md:text-xs lg:text-xs text-muted-foreground truncate">{spec.title}</div>
@@ -209,7 +209,7 @@ const FeaturesAndRobot3D = () => {
               </div>
 
               {/* Avantages Supplémentaires */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 px-6 sm:px-0">
                 {additionalFeatures.map((feature, index) => {
                   const IconComponent = feature.icon;
                   return (
@@ -218,8 +218,8 @@ const FeaturesAndRobot3D = () => {
                       className="text-center p-3 hover:shadow-lg transition-all duration-300"
                       style={{ animationDelay: `${800 + index * 100}ms` }}
                     >
-                      <div className="inline-flex items-center justify-center w-8 h-8 mb-2 bg-primary/10 rounded-full">
-                        <IconComponent className="h-4 w-4 text-primary" />
+                      <div className="inline-flex items-center justify-center w-8 h-8 mb-2 bg-primary rounded-full">
+                        <IconComponent className="h-4 w-4 text-primary-foreground" />
                       </div>
                       <h4 className="font-semibold text-xs mb-1">{feature.title}</h4>
                       <p className="text-xs text-muted-foreground">{feature.description}</p>
