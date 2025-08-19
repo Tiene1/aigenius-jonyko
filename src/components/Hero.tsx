@@ -29,9 +29,9 @@ const Hero = () => {
           <div className="space-y-8 animate-slide-in-left">
             
             {/* Badge - GoGreen Style */}
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-secondary rounded-full border border-primary/20">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-transparent rounded-full border-2 border-primary">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-foreground">Innovation Agricole</span>
+              <span className="text-sm font-medium text-primary">Innovation Agricole</span>
             </div>
             
             {/* Main Title - GoGreen Typography */}

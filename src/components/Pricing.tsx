@@ -65,6 +65,34 @@ const Pricing = () => {
 
   const renderPricingCard = (option: typeof pricingOptions[0], index: number) => {
     const IconComponent = option.icon;
+    const colorClasses = {
+      primary: {
+        bg: 'bg-primary-transparent',
+        text: 'text-primary',
+        border: 'border-primary/20',
+        iconColor: 'text-primary-dark',
+        buttonBg: 'bg-primary-darker',
+        checkBg: 'bg-primary-darker'
+      },
+      secondary: {
+        bg: 'bg-secondary-transparent',
+        text: 'text-secondary', 
+        border: 'border-secondary/20',
+        iconColor: 'text-secondary-dark',
+        buttonBg: 'bg-secondary-darker',
+        checkBg: 'bg-secondary-darker'
+      },
+      accent: {
+        bg: 'bg-accent-transparent',
+        text: 'text-accent',
+        border: 'border-accent/20',
+        iconColor: 'text-accent-dark',
+        buttonBg: 'bg-accent-darker',
+        checkBg: 'bg-accent-darker'
+      }
+    };
+    
+    const currentColor = colorClasses[option.color as keyof typeof colorClasses];
     return (
       <div className="relative">
         {/* Badge repositionné pour ne pas affecter l'alignement */}
@@ -84,12 +112,12 @@ const Pricing = () => {
         >
 
         <CardHeader className="text-center pb-4 flex-shrink-0">
-          <div className={`inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 mb-4 bg-primary rounded-full mx-auto transition-all duration-300 group-hover:bg-primary group-hover:scale-110`}>
-            <IconComponent className={`h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 text-primary-foreground`} />
+          <div className={`inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 mb-4 ${currentColor.bg} rounded-2xl mx-auto transition-all duration-300 group-hover:${currentColor.bg} group-hover:scale-110`}>
+            <IconComponent className={`h-7 w-7 sm:h-8 sm:w-8 lg:h-9 lg:w-9 ${currentColor.iconColor}`} />
           </div>
           <CardTitle className="text-lg sm:text-xl lg:text-2xl mb-3 font-display">{option.title}</CardTitle>
           <div className="mb-3">
-            <span className={`text-xl sm:text-2xl lg:text-3xl font-bold text-primary font-display`}>
+            <span className={`text-xl sm:text-2xl lg:text-3xl font-bold ${currentColor.text} font-display`}>
               {option.price.split(' - ')[0]}
             </span>
             {option.price.includes(' - ') && (
@@ -111,8 +139,8 @@ const Pricing = () => {
             <ul className="space-y-2 sm:space-y-3 w-full">
               {option.features.map((feature, idx) => (
                 <li key={idx} className="flex items-start gap-2 sm:gap-3">
-                  <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                    <Check className={`h-2.5 w-2.5 sm:h-3 sm:w-3 text-primary-foreground`} />
+                  <div className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full ${currentColor.checkBg} flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                    <Check className={`h-2.5 w-2.5 sm:h-3 sm:w-3 text-white`} />
                   </div>
                   <span className="text-xs sm:text-sm lg:text-base text-muted-foreground leading-relaxed flex-1">{feature}</span>
                 </li>
@@ -121,13 +149,7 @@ const Pricing = () => {
           </div>
 
           <Button 
-            className={`w-full mt-auto py-2 sm:py-3 text-sm sm:text-base lg:text-lg ${
-              option.popular 
-                ? 'bg-gradient-primary hover:shadow-lg hover:shadow-primary/25 hover:scale-105' 
-                : option.color === 'secondary'
-                ? 'bg-primary/90 hover:shadow-lg hover:shadow-primary/25 hover:scale-105'
-                : 'bg-gradient-accent hover:shadow-lg hover:shadow-accent/25 hover:scale-105'
-            } transition-all duration-300`}
+            className={`w-full mt-auto py-2 sm:py-3 text-sm sm:text-base lg:text-lg ${currentColor.buttonBg} text-white hover:shadow-lg hover:shadow-${option.color}/25 hover:scale-105 transition-all duration-300`}
             onClick={scrollToContact}
           >
             {option.title === "Achat Direct" ? "Demander un devis" :
@@ -196,19 +218,19 @@ const Pricing = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm text-muted-foreground">
                 <div className="text-center">
                   <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Check className="h-4 w-4 text-primary-foreground" />
+                    <Check className="h-4 w-4 text-white" />
                   </div>
                   <p>Suivi personnalisé de chaque client</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Check className="h-4 w-4 text-primary-foreground" />
+                  <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Check className="h-4 w-4 text-white" />
                   </div>
                   <p>Respect des délais de livraison</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Check className="h-4 w-4 text-primary-foreground" />
+                  <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center mx-auto mb-2">
+                    <Check className="h-4 w-4 text-white" />
                   </div>
                   <p>Transparence totale sur tarifs</p>
                 </div>

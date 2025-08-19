@@ -52,7 +52,7 @@ const Team = () => {
         
         {/* GoGreen Style Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-secondary rounded-full border border-primary/20 mb-6">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-transparent rounded-full border-2 border-primary mb-6">
             <span className="text-sm font-medium text-primary">Notre Équipe</span>
           </div>
           
@@ -72,34 +72,35 @@ const Team = () => {
           {teamMembers.slice(0, 3).map((member, index) => (
             <div 
               key={member.id}
-              className="bg-background rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group animate-fade-in"
+              className="rounded-lg bg-card text-card-foreground shadow-sm group transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 animate-scale-in h-full flex flex-col relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-2 border-transparent hover:border-primary/20"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              {/* Photo */}
-              <div className="relative mb-6">
-                <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
-                  <img 
-                    src={member.image} 
-                    alt={`Photo de ${member.name}`}
-                    className="w-full h-full object-cover"
-                  />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="flex flex-col space-y-1.5 p-6 text-center pb-6 relative z-10">
+                <div className="relative mx-auto mb-6">
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-accent opacity-20 group-hover:opacity-40 blur-sm transition-all duration-500 scale-110"></div>
+                    <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-30 md:h-30 mx-auto rounded-full overflow-hidden bg-gradient-primary border-2 sm:border-3 md:border-3 border-white shadow-xl relative z-10 group-hover:scale-105 transition-transform duration-300">
+                      <img 
+                        src={member.image} 
+                        alt={`Photo de ${member.name}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
                 </div>
+                <h3 className="text-lg sm:text-xl md:text-xl font-bold text-primary mb-2 group-hover:text-primary/90 transition-colors">
+                  {member.name}
+                </h3>
+                <p className="text-xs sm:text-sm md:text-sm font-semibold text-secondary uppercase tracking-wide">
+                  {member.role}
+                </p>
               </div>
-              
-              {/* Name */}
-              <h3 className="font-bold text-foreground mb-2 font-display text-center">
-                {member.name}
-              </h3>
-              
-              {/* Role */}
-              <p className="text-sm text-primary font-semibold text-center mb-4">
-                {member.role}
-              </p>
-              
-              {/* Description */}
-              <p className="text-sm text-muted-foreground leading-relaxed text-center">
-                {member.description}
-              </p>
+              <div className="p-6 pt-0 flex-1 flex flex-col text-center px-4 sm:px-5 md:px-4 lg:px-4 pb-4 sm:pb-5 md:pb-4 lg:pb-4 relative z-10">
+                <p className="text-xs sm:text-sm md:text-xs lg:text-sm text-muted-foreground leading-relaxed min-h-[100px] sm:min-h-[120px] md:min-h-[140px] lg:min-h-[140px] overflow-hidden">
+                  {member.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -110,34 +111,35 @@ const Team = () => {
             {teamMembers.slice(3, 5).map((member, index) => (
               <div 
                 key={member.id}
-                className="bg-background rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group animate-fade-in"
+                className="rounded-lg bg-card text-card-foreground shadow-sm group transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 animate-scale-in h-full flex flex-col relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 border-2 border-transparent hover:border-primary/20"
                 style={{ animationDelay: `${(index + 3) * 150}ms` }}
               >
-                {/* Photo */}
-                <div className="relative mb-6">
-                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
-                    <img 
-                      src={member.image} 
-                      alt={`Photo de ${member.name}`}
-                      className="w-full h-full object-cover"
-                    />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="flex flex-col space-y-1.5 p-6 text-center pb-6 relative z-10">
+                  <div className="relative mx-auto mb-6">
+                    <div className="relative">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-secondary to-accent opacity-20 group-hover:opacity-40 blur-sm transition-all duration-500 scale-110"></div>
+                      <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-30 md:h-30 mx-auto rounded-full overflow-hidden bg-gradient-primary border-2 sm:border-3 md:border-3 border-white shadow-xl relative z-10 group-hover:scale-105 transition-transform duration-300">
+                        <img 
+                          src={member.image} 
+                          alt={`Photo de ${member.name}`}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
                   </div>
+                  <h3 className="text-lg sm:text-xl md:text-xl font-bold text-primary mb-2 group-hover:text-primary/90 transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm md:text-sm font-semibold text-secondary uppercase tracking-wide">
+                    {member.role}
+                  </p>
                 </div>
-                
-                {/* Name */}
-                <h3 className="font-bold text-foreground mb-2 font-display text-center">
-                  {member.name}
-                </h3>
-                
-                {/* Role */}
-                <p className="text-sm text-primary font-semibold text-center mb-4">
-                  {member.role}
-                </p>
-                
-                {/* Description */}
-                <p className="text-sm text-muted-foreground leading-relaxed text-center">
-                  {member.description}
-                </p>
+                <div className="p-6 pt-0 flex-1 flex flex-col text-center px-4 sm:px-5 md:px-4 lg:px-4 pb-4 sm:pb-5 md:pb-4 lg:pb-4 relative z-10">
+                  <p className="text-xs sm:text-sm md:text-xs lg:text-sm text-muted-foreground leading-relaxed min-h-[100px] sm:min-h-[120px] md:min-h-[140px] lg:min-h-[140px] overflow-hidden">
+                    {member.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -147,19 +149,24 @@ const Team = () => {
         <div className="text-center animate-fade-in" style={{ animationDelay: '800ms' }}>
           
           {/* Company Info */}
-          <div className="bg-secondary rounded-3xl p-8 max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold text-foreground mb-4 font-display">
-              AiGENIUS GROUPE
-            </h3>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              Une startup innovante spécialisée dans le développement de solutions robotiques 
-              pour l'agriculture moderne. Notre mission : révolutionner le secteur agricole 
-              africain grâce à l'intelligence artificielle et la robotique avancée.
-            </p>
-            <div className="flex flex-wrap justify-center gap-3">
-              <span className="px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm">Innovation</span>
-              <span className="px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm">Robotique Agricole</span>
-              <span className="px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm">Made in Côte d'Ivoire</span>
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm max-w-4xl mx-auto bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
+            <div className="p-8">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Users className="w-8 h-8 text-primary" />
+                <h3 className="text-2xl font-bold">AiGENIUS GROUPE</h3>
+              </div>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Une startup innovante spécialisée dans le développement de solutions robotiques 
+                pour l'agriculture moderne. Notre mission : révolutionner le secteur agricole 
+                africain grâce à l'intelligence artificielle et la robotique avancée.
+              </p>
+              <div className="flex flex-wrap justify-center gap-2">
+                <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground">Innovation</div>
+                <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground">Robotique Agricole</div>
+                <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground">Intelligence Artificielle</div>
+                <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground">Fabriqué en Côte d'Ivoire</div>
+                <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-foreground">L'agriculture 4.0</div>
+              </div>
             </div>
           </div>
         </div>

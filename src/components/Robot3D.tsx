@@ -76,22 +76,22 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
         frameloop={isMobile ? "demand" : "always"}
         style={{ background: '#f1f5f9' }}
       >
-        {/* Éclairage adaptatif */}
-        <ambientLight intensity={isMobile ? 0.8 : 0.5} />
+        {/* Éclairage adaptatif - Luminosité réduite */}
+        <ambientLight intensity={isMobile ? 0.4 : 0.3} />
         {!isMobile && (
           <>
             <directionalLight 
               position={[10, 10, 5]} 
-              intensity={1}
+              intensity={0.6}
               castShadow
             />
-            <pointLight position={[-10, -10, -10]} intensity={0.3} />
+            <pointLight position={[-10, -10, -10]} intensity={0.15} />
           </>
         )}
         {isMobile && (
           <directionalLight 
             position={[10, 10, 5]} 
-            intensity={0.8}
+            intensity={0.5}
             castShadow={false}
           />
         )}

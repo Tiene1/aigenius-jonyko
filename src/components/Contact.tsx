@@ -48,22 +48,47 @@ const Contact = () => {
     {
       icon: Users,
       title: "Vente Directe",
-      description: "Accompagnement personnalisé pour l'acquisition de votre robot JONYKO"
+      description: "Accompagnement personnalisé pour l'acquisition de votre robot JONYKO",
+      color: "primary"
     },
     {
       icon: Clock,
       title: "Location Flexible",
-      description: "Solutions saisonnières adaptées à vos cycles agricoles"
+      description: "Solutions saisonnières adaptées à vos cycles agricoles",
+      color: "secondary"
     },
     {
       icon: Award,
       title: "Maintenance Pro",
-      description: "Service après-vente professionnel avec pièces d'origine"
+      description: "Service après-vente professionnel avec pièces d'origine",
+      color: "accent"
     }
   ];
 
   const renderContactCard = (info: typeof contactInfo[0], index: number) => {
     const IconComponent = info.icon;
+    const colorClasses = {
+      primary: {
+        bg: 'bg-primary-transparent',
+        text: 'text-primary',
+        border: 'border-primary/20',
+        iconColor: 'text-primary-dark'
+      },
+      secondary: {
+        bg: 'bg-secondary-transparent',
+        text: 'text-secondary', 
+        border: 'border-secondary/20',
+        iconColor: 'text-secondary-dark'
+      },
+      accent: {
+        bg: 'bg-accent-transparent',
+        text: 'text-accent',
+        border: 'border-accent/20',
+        iconColor: 'text-accent-dark'
+      }
+    };
+    
+    const currentColor = colorClasses[info.color as keyof typeof colorClasses];
     return (
       <Card 
         key={info.title}
@@ -72,12 +97,12 @@ const Contact = () => {
       >
         <CardContent className="p-4 sm:p-5 lg:p-6 h-full flex flex-col">
           <div className="flex items-start gap-3 sm:gap-4 flex-1">
-            <div className={`p-2 sm:p-3 rounded-lg bg-primary flex-shrink-0`}>
-              <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground`} />
+            <div className={`p-2 sm:p-3 rounded-xl ${currentColor.bg} flex-shrink-0`}>
+              <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 ${currentColor.iconColor}`} />
             </div>
             <div className="flex-1 min-w-0">
               <h3 className="font-semibold mb-1 text-sm sm:text-base">{info.title}</h3>
-              <p className={`text-primary font-medium mb-1 text-xs sm:text-sm break-all`}>
+              <p className={`${currentColor.text} font-medium mb-1 text-xs sm:text-sm break-all`}>
                 {info.content}
               </p>
               <p className="text-xs sm:text-sm text-muted-foreground">
@@ -146,13 +171,20 @@ const Contact = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-6 sm:px-0">
                 {services.map((service, index) => {
                   const IconComponent = service.icon;
+                  const colorClasses = {
+                    primary: { bg: 'bg-primary-transparent', iconColor: 'text-primary-dark' },
+                    secondary: { bg: 'bg-secondary-transparent', iconColor: 'text-secondary-dark' },
+                    accent: { bg: 'bg-accent-transparent', iconColor: 'text-accent-dark' }
+                  };
+                  const currentColor = colorClasses[service.color as keyof typeof colorClasses];
+                  
                   return (
                     <div 
                       key={service.title}
                       className="text-center space-y-3"
                     >
-                      <div className="inline-flex items-center justify-center w-12 h-12 bg-primary rounded-full">
-                        <IconComponent className="h-6 w-6 text-primary-foreground" />
+                      <div className={`inline-flex items-center justify-center w-12 h-12 ${currentColor.bg} rounded-2xl`}>
+                        <IconComponent className={`h-6 w-6 ${currentColor.iconColor}`} />
                       </div>
                       <h4 className="font-semibold text-base sm:text-lg">{service.title}</h4>
                       <p className="text-sm text-muted-foreground">

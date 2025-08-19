@@ -124,25 +124,28 @@ const FeaturesAndRobot3D = () => {
             {/* Modes de Fonctionnement */}
             <div>
               <h3 className="text-2xl font-bold mb-6 text-center">Modes de Fonctionnement</h3>
-              <div className="max-w-4xl mx-auto">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-5 lg:gap-6 px-6 sm:px-0"></div>
+              <div className="max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8 px-6 sm:px-0">
                 {modes.map((mode, index) => {
                   const IconComponent = mode.icon;
                   const colorClasses = {
                     primary: {
-                      bg: 'bg-primary',
+                      bg: 'bg-primary-transparent',
                       text: 'text-primary',
-                      border: 'border-primary/20'
+                      border: 'border-primary/20',
+                      iconColor: 'text-primary-dark'
                     },
                     secondary: {
-                      bg: 'bg-secondary',
+                      bg: 'bg-secondary-transparent',
                       text: 'text-secondary', 
-                      border: 'border-secondary/20'
+                      border: 'border-secondary/20',
+                      iconColor: 'text-secondary-dark'
                     },
                     accent: {
-                      bg: 'bg-accent',
+                      bg: 'bg-accent-transparent',
                       text: 'text-accent',
-                      border: 'border-accent/20'
+                      border: 'border-accent/20',
+                      iconColor: 'text-accent-dark'
                     }
                   };
                   
@@ -156,11 +159,11 @@ const FeaturesAndRobot3D = () => {
                     >
                       <CardHeader className="pb-3 sm:pb-4 md:pb-3 lg:pb-4">
                         <div className="flex items-center gap-2 sm:gap-3 md:gap-2 lg:gap-3">
-                          <div className={`p-2 sm:p-3 md:p-2 lg:p-3 rounded-lg bg-primary flex-shrink-0`}>
-                            <IconComponent className={`h-5 w-5 sm:h-6 sm:w-6 md:h-5 md:w-5 lg:h-6 lg:w-6 text-primary-foreground`} />
+                          <div className={`p-2 sm:p-3 md:p-2 lg:p-3 rounded-xl ${currentColor.bg} flex-shrink-0`}>
+                            <IconComponent className={`h-5 w-5 sm:h-6 sm:w-6 md:h-5 md:w-5 lg:h-6 lg:w-6 ${currentColor.iconColor}`} />
                           </div>
                           <div className="min-w-0 flex-1">
-                            <CardTitle className={`text-base sm:text-lg md:text-base lg:text-lg text-primary truncate`}>{mode.title}</CardTitle>
+                            <CardTitle className={`text-base sm:text-lg md:text-base lg:text-lg ${currentColor.text} truncate`}>{mode.title}</CardTitle>
                             <p className="text-xs sm:text-sm md:text-xs lg:text-sm text-muted-foreground line-clamp-2">{mode.description}</p>
                           </div>
                         </div>
@@ -169,7 +172,7 @@ const FeaturesAndRobot3D = () => {
                         <ul className="space-y-1 sm:space-y-2 md:space-y-1 lg:space-y-2">
                           {mode.features.map((feature, idx) => (
                             <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm md:text-xs lg:text-sm">
-                              <div className={`w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-1 md:h-1 lg:w-1.5 lg:h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0`} />
+                              <div className={`w-1 h-1 sm:w-1.5 sm:h-1.5 md:w-1 md:h-1 lg:w-1.5 lg:h-1.5 rounded-full ${currentColor.bg} mt-1.5 flex-shrink-0`} />
                               <span className="line-clamp-2">{feature}</span>
                             </li>
                           ))}
