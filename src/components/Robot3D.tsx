@@ -64,6 +64,7 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
     powerPreference: "high-performance" as const
   };
 
+  // Configuration et rendu adaptatif selon l'appareil
   return (
     <div className="w-full h-[500px] rounded-lg overflow-hidden bg-gradient-to-br from-background to-muted">
       <Canvas
@@ -74,7 +75,7 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
         gl={isMobile ? mobileConfig : desktopConfig}
         frameloop={isMobile ? "demand" : "always"}
       >
-        {/* Éclairage optimisé pour mobile */}
+        {/* Éclairage adaptatif */}
         <ambientLight intensity={isMobile ? 0.8 : 0.5} />
         {!isMobile && (
           <>
@@ -101,7 +102,7 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
           </Center>
         </Suspense>
         
-        {/* Contrôles optimisés */}
+        {/* Contrôles adaptatifs */}
         <OrbitControls 
           enablePan={!isMobile}
           enableZoom={true}
@@ -112,15 +113,14 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
           dampingFactor={isMobile ? 0.1 : 0.05}
           enableDamping={!isMobile}
           target={[0, 0, 0]}
-          touches={{
-            ONE: isMobile ? 2 : 0, // Rotation avec un doigt sur mobile
-            TWO: isMobile ? 1 : 1  // Zoom avec deux doigts sur mobile
-          }}
+          touches={isMobile ? {
+            ONE: 2, // Rotation avec un doigt
+            TWO: 1  // Zoom avec deux doigts
+          } : undefined}
         />
         
-        {/* Environnement optimisé */}
-        {!isMobile && <Environment preset="city" />}
-        {isMobile && <Environment preset="studio" />}
+        {/* Environnement adaptatif */}
+        <Environment preset={isMobile ? "studio" : "city"} />
       </Canvas>
       
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-muted-foreground bg-transparent px-2 py-1 rounded text-center">
