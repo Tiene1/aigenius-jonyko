@@ -69,8 +69,8 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
     <div className="w-full h-[500px] rounded-lg overflow-hidden bg-gradient-to-br from-background to-muted">
       <Canvas
         camera={{ 
-          position: [0, 0, 20], 
-          fov: 50,
+          position: isMobile ? [0, 0, 30] : [0, 0, 20], 
+          fov: isMobile ? 60 : 50,
         }}
         gl={isMobile ? mobileConfig : desktopConfig}
         frameloop={isMobile ? "demand" : "always"}
@@ -104,25 +104,19 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
         
         {/* Contrôles adaptatifs */}
         <OrbitControls 
-          enablePan={true}
+          enablePan={isMobile ? false : true}
           enableZoom={true}
           enableRotate={true}
-          minDistance={10}
-          maxDistance={35}
+          minDistance={isMobile ? 15 : 10}
+          maxDistance={isMobile ? 50 : 35}
           autoRotate={false}
-          dampingFactor={isMobile ? 0.1 : 0.05}
+          dampingFactor={0.05}
           enableDamping={true}
           target={[0, 0, 0]}
-          touches={{
-            ONE: 0, // Rotation avec un doigt
-            TWO: 1, // Pan avec deux doigts
-            THREE: 2 // Zoom avec deux doigts (pinch)
-          }}
-          mouseButtons={{
-            LEFT: 0, // Rotation souris
-            MIDDLE: 1, // Zoom molette
-            RIGHT: 2 // Pan clic droit
-          }}
+          rotateSpeed={isMobile ? 1.5 : 1.0}
+          zoomSpeed={isMobile ? 1.2 : 1.0}
+          panSpeed={isMobile ? 0.8 : 1.0}
+          touchAction="manipulation"
         />
         
         {/* Environnement adaptatif */}
@@ -130,7 +124,7 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
       </Canvas>
       
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-muted-foreground bg-background/80 px-3 py-1 rounded text-center">
-        {isMobile ? "Touchez et glissez pour tourner • Pincez pour zoomer" : "Cliquez et glissez pour contrôler la vue"}
+        {isMobile ? "Glissez avec 1 doigt pour pivoter • 2 doigts pour zoomer" : "Cliquez et glissez pour contrôler la vue"}
       </div>
     </div>
   );
