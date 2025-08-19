@@ -124,7 +124,8 @@ const FeaturesAndRobot3D = () => {
             {/* Modes de Fonctionnement */}
             <div>
               <h3 className="text-2xl font-bold mb-6 text-center">Modes de Fonctionnement</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-5 lg:gap-5 px-6 sm:px-0">
+              <div className="max-w-5xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-5 lg:gap-8 px-6 sm:px-0"></div>
                 {modes.map((mode, index) => {
                   const IconComponent = mode.icon;
                   const colorClasses = {
@@ -177,6 +178,7 @@ const FeaturesAndRobot3D = () => {
                     </Card>
                   );
                 })}
+                </div>
               </div>
             </div>
 
