@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, Environment, Center } from '@react-three/drei';
 import { Suspense } from 'react';
@@ -36,6 +36,34 @@ function Loader() {
 }
 
 const Robot3D = ({ modelPath }: RobotModelProps) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Détecter si on est sur mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || /Mobi|Android/i.test(navigator.userAgent));
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Configuration optimisée pour mobile
+  const mobileConfig = {
+    antialias: false,
+    alpha: false,
+    powerPreference: "default" as const,
+    stencil: false,
+    depth: true
+  };
+
+  const desktopConfig = {
+    antialias: true,
+    alpha: true,
+    powerPreference: "high-performance" as const
+  };
+
   return (
     <div className="w-full h-[500px] rounded-lg overflow-hidden bg-gradient-to-br from-background to-muted">
       <Canvas
@@ -43,16 +71,28 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
           position: [0, 0, 20], 
           fov: 50,
         }}
-        gl={{ antialias: true }}
+        gl={isMobile ? mobileConfig : desktopConfig}
+        frameloop={isMobile ? "demand" : "always"}
       >
-        {/* Éclairage */}
-        <ambientLight intensity={0.5} />
-        <directionalLight 
-          position={[10, 10, 5]} 
-          intensity={1}
-          castShadow
-        />
-        <pointLight position={[-10, -10, -10]} intensity={0.3} />
+        {/* Éclairage optimisé pour mobile */}
+        <ambientLight intensity={isMobile ? 0.8 : 0.5} />
+        {!isMobile && (
+          <>
+            <directionalLight 
+              position={[10, 10, 5]} 
+              intensity={1}
+              castShadow
+            />
+            <pointLight position={[-10, -10, -10]} intensity={0.3} />
+          </>
+        )}
+        {isMobile && (
+          <directionalLight 
+            position={[10, 10, 5]} 
+            intensity={0.8}
+            castShadow={false}
+          />
+        )}
         
         {/* Modèle 3D avec centrage automatique */}
         <Suspense fallback={<Loader />}>
@@ -61,25 +101,30 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
           </Center>
         </Suspense>
         
-        {/* Contrôles */}
+        {/* Contrôles optimisés */}
         <OrbitControls 
-          enablePan={true}
+          enablePan={!isMobile}
           enableZoom={true}
           enableRotate={true}
           minDistance={10}
           maxDistance={35}
           autoRotate={false}
-          dampingFactor={0.05}
-          enableDamping={true}
+          dampingFactor={isMobile ? 0.1 : 0.05}
+          enableDamping={!isMobile}
           target={[0, 0, 0]}
+          touches={{
+            ONE: isMobile ? 2 : 0, // Rotation avec un doigt sur mobile
+            TWO: isMobile ? 1 : 1  // Zoom avec deux doigts sur mobile
+          }}
         />
         
-        {/* Environnement */}
-        <Environment preset="city" />
+        {/* Environnement optimisé */}
+        {!isMobile && <Environment preset="city" />}
+        {isMobile && <Environment preset="studio" />}
       </Canvas>
       
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-muted-foreground bg-transparent px-2 py-1 rounded text-center">
-        Double cliquez ou appuyez et glissez pour contrôler la vue
+        {isMobile ? "Glissez pour faire tourner, pincez pour zoomer" : "Double cliquez ou appuyez et glissez pour contrôler la vue"}
       </div>
     </div>
   );
