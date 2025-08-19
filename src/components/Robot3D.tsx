@@ -104,27 +104,33 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
         
         {/* Contrôles adaptatifs */}
         <OrbitControls 
-          enablePan={!isMobile}
+          enablePan={true}
           enableZoom={true}
           enableRotate={true}
           minDistance={10}
           maxDistance={35}
           autoRotate={false}
           dampingFactor={isMobile ? 0.1 : 0.05}
-          enableDamping={!isMobile}
+          enableDamping={true}
           target={[0, 0, 0]}
-          touches={isMobile ? {
-            ONE: 2, // Rotation avec un doigt
-            TWO: 1  // Zoom avec deux doigts
-          } : undefined}
+          touches={{
+            ONE: 0, // Rotation avec un doigt
+            TWO: 1, // Pan avec deux doigts
+            THREE: 2 // Zoom avec deux doigts (pinch)
+          }}
+          mouseButtons={{
+            LEFT: 0, // Rotation souris
+            MIDDLE: 1, // Zoom molette
+            RIGHT: 2 // Pan clic droit
+          }}
         />
         
         {/* Environnement adaptatif */}
         <Environment preset={isMobile ? "studio" : "city"} />
       </Canvas>
       
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-muted-foreground bg-transparent px-2 py-1 rounded text-center">
-        {isMobile ? "Glissez pour faire tourner, pincez pour zoomer" : "Double cliquez ou appuyez et glissez pour contrôler la vue"}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-muted-foreground bg-background/80 px-3 py-1 rounded text-center">
+        {isMobile ? "Touchez et glissez pour tourner • Pincez pour zoomer" : "Cliquez et glissez pour contrôler la vue"}
       </div>
     </div>
   );
