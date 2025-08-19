@@ -74,24 +74,24 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
         }}
         gl={isMobile ? mobileConfig : desktopConfig}
         frameloop={isMobile ? "demand" : "always"}
-        style={{ background: '#f1f5f9' }}
+        style={{ background: '#e2e8f0' }}
       >
-        {/* Éclairage adaptatif - Luminosité réduite */}
-        <ambientLight intensity={isMobile ? 0.4 : 0.3} />
+        {/* Éclairage adaptatif */}
+        <ambientLight intensity={isMobile ? 0.8 : 0.5} />
         {!isMobile && (
           <>
             <directionalLight 
               position={[10, 10, 5]} 
-              intensity={0.6}
+              intensity={1}
               castShadow
             />
-            <pointLight position={[-10, -10, -10]} intensity={0.15} />
+            <pointLight position={[-10, -10, -10]} intensity={0.3} />
           </>
         )}
         {isMobile && (
           <directionalLight 
             position={[10, 10, 5]} 
-            intensity={0.5}
+            intensity={0.8}
             castShadow={false}
           />
         )}
@@ -121,7 +121,7 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
         />
         
         {/* Fond de couleur personnalisé - priorité sur environnement */}
-        <color attach="background" args={['#f1f5f9']} />
+        <color attach="background" args={['#e2e8f0']} />
         
         {/* Environnement désactivé pour éviter les fonds noirs */}
         {!isMobile && (
