@@ -74,7 +74,7 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
         }}
         gl={isMobile ? mobileConfig : desktopConfig}
         frameloop={isMobile ? "demand" : "always"}
-        style={{ background: 'transparent' }}
+        style={{ background: '#f1f5f9' }}
       >
         {/* Éclairage adaptatif */}
         <ambientLight intensity={isMobile ? 0.8 : 0.5} />
@@ -120,16 +120,18 @@ const Robot3D = ({ modelPath }: RobotModelProps) => {
           touchAction="manipulation"
         />
         
-        {/* Environnement adaptatif avec fond clair */}
-        <Environment 
-          preset={isMobile ? "studio" : "city"} 
-          background={true}
-          backgroundBlurriness={0.3}
-          backgroundIntensity={0.4}
-        />
+        {/* Fond de couleur personnalisé - priorité sur environnement */}
+        <color attach="background" args={['#f1f5f9']} />
         
-        {/* Fond de couleur personnalisé */}
-        <color attach="background" args={['#f8fafc']} />
+        {/* Environnement désactivé pour éviter les fonds noirs */}
+        {!isMobile && (
+          <Environment 
+            preset="studio"
+            background={false}
+            backgroundBlurriness={0}
+            backgroundIntensity={0.2}
+          />
+        )}
       </Canvas>
       
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-xs text-muted-foreground bg-background/80 px-3 py-1 rounded text-center">
